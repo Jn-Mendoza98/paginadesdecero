@@ -96,18 +96,27 @@ const calzoneApp = {
     },
 
     ingList: [
-        { id: 'pepperoni', name: 'Pepperoni', emoji: '🍕' },
-        { id: 'jamon', name: 'Jamón', emoji: '🍖' },
-        { id: 'champinones', name: 'Champiñones', emoji: '🍄' },
-        { id: 'pimientos', name: 'Pimientos', emoji: '🫑' },
+        { id: 'aceitunas-n', name: 'Aceitunas Negras', emoji: '🫒' },
+        { id: 'aji', name: 'Ají', emoji: '🌶️' },
+        { id: 'albahaca', name: 'Albahaca', emoji: '🌿' },
+        { id: 'cabanossi', name: 'Cabanossi', emoji: '🌭' },
         { id: 'cebolla', name: 'Cebolla', emoji: '🧅' },
-        { id: 'tomate', name: 'Tomate', emoji: '🍅' },
-        { id: 'aceitunas-n', name: 'Aceitunas negras', emoji: '🫒' },
-        { id: 'aceitunas-v', name: 'Aceitunas verdes', emoji: '🍈' },
-        { id: 'maiz', name: 'Maíz', emoji: '🌽' },
-        { id: 'espinaca', name: 'Espinaca', emoji: '🥬' },
-        { id: 'brocoli', name: 'Brócoli', emoji: '🥦' },
-        { id: 'queso-extra', name: 'Queso extra', emoji: '🧀' }
+        { id: 'cecina', name: 'Cecina', emoji: '🥩' },
+        { id: 'champinones', name: 'Champiñones', emoji: '🍄' },
+        { id: 'chorizo', name: 'Chorizo', emoji: '🌭' },
+        { id: 'durazno', name: 'Durazno', emoji: '🍑' },
+        { id: 'esparrago', name: 'Espárrago', emoji: '🥬' },
+        { id: 'jamon', name: 'Jamón', emoji: '🍖' },
+        { id: 'papaya', name: 'Papaya', emoji: '🥭' },
+        { id: 'pepperoni', name: 'Pepperoni', emoji: '🍕' },
+        { id: 'pimiento', name: 'Pimiento', emoji: '🫑' },
+        { id: 'pina', name: 'Piña', emoji: '🍍' },
+        { id: 'platano', name: 'Plátano', emoji: '🍌' },
+        { id: 'pollo', name: 'Pollo', emoji: '🍗' },
+        { id: 'salame', name: 'Salame', emoji: '🍖' },
+        { id: 'salchicha', name: 'Salchicha', emoji: '🌭' },
+        { id: 'tocino', name: 'Tocino', emoji: '🥓' },
+        { id: 'tomate', name: 'Tomate en rodajas', emoji: '🍅' }
     ],
 
     init() {
