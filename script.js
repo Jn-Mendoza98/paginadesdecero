@@ -92,7 +92,7 @@ const calzoneApp = {
     prices: {
         tradicional: 24.90,
         vegetariano: 26.90,
-        amigusto: 0.00 // Adjust as needed
+        amigusto: 28.90 // A Mi Gusto base price
     },
 
     ingList: [
@@ -272,11 +272,8 @@ const calzoneApp = {
         if(qVal) qVal.innerText = this.state.qty;
 
         // Price Calculation
-        let total = this.state.basePrice * this.state.qty;
-
-        if (this.state.type === 'amigusto' && this.state.basePrice === 0) {
-             total = 0;
-        }
+        let base = this.prices[this.state.type];
+        let total = base * this.state.qty;
 
         const priceStr = `S/ ${total.toFixed(2)}`;
         const sPrice = document.getElementById('calzone-summary-price');
