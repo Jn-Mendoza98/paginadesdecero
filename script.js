@@ -289,7 +289,7 @@ const calzoneApp = {
         const sPrice = document.getElementById('calzone-summary-price');
         const bPrice = document.getElementById('calzone-btn-price');
 
-        if(sPrice) sPrice.innerText = priceStr;
+        if(sPrice) sPrice.innerHTML = `<span class="text-sm sm:text-base">S/</span><span>${total.toFixed(2)}</span>`;
         if(bPrice) bPrice.innerText = priceStr;
     }
 };
