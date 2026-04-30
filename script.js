@@ -97,6 +97,7 @@ const calzoneApp = {
 
     ingList: [
         { id: 'aceitunas-n', name: 'Aceitunas Negras', emoji: '🫒' },
+        { id: 'aceitunas-v', name: 'Aceitunas Verdes', emoji: '🍈' },
         { id: 'aji', name: 'Ají', emoji: '🌶️' },
         { id: 'albahaca', name: 'Albahaca', emoji: '🌿' },
         { id: 'cabanossi', name: 'Cabanossi', emoji: '🌭' },
