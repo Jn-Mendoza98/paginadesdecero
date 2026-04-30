@@ -99,8 +99,8 @@ const cartApp = {
     },
 
     addItem(name, price, imageSrc, desc = '') {
-        // Check if item exists (simple match by name)
-        const existing = this.state.items.find(i => i.name === name);
+        // Check if item exists (match by both name and exact description)
+        const existing = this.state.items.find(i => i.name === name && i.desc === desc);
         if (existing) {
             existing.qty += 1;
         } else {
@@ -157,6 +157,7 @@ const cartApp = {
         this.state.items.forEach(item => {
             const itemTotal = item.price * item.qty;
             total += itemTotal;
+            const descHtml = item.desc ? `<div class="text-[10px] sm:text-xs text-gray-500 mt-0.5 line-clamp-2 leading-tight">${item.desc}</div>` : '';
             html += `
                 <div class="bg-[#f8f9fa] rounded-xl p-3 flex items-center gap-4 border border-gray-100">
                     <div class="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0">
@@ -164,6 +165,7 @@ const cartApp = {
                     </div>
                     <div class="flex-grow min-w-0">
                         <h4 class="font-bold text-gray-800 text-sm truncate">${item.name}</h4>
+                        ${descHtml}
                         <div class="text-xs text-gray-400 mt-0.5 truncate">S/ ${item.price.toFixed(2)} x ${item.qty}</div>
                     </div>
                     <div class="font-bold text-gray-800 whitespace-nowrap">S/ ${itemTotal.toFixed(2)}</div>
@@ -415,9 +417,25 @@ const calzoneApp = {
         const price = this.prices[this.state.type];
         const img = 'IM/CAL.jpg';
 
+        let desc = '';
+        if (this.state.type === 'vegetariano') {
+            const aName = this.state.aceituna.charAt(0).toUpperCase() + this.state.aceituna.slice(1);
+            desc = `Aceitunas: ${aName}`;
+        } else if (this.state.type === 'amigusto') {
+            if (this.state.ingredients.length > 0) {
+                const ingNames = this.state.ingredients.map(id => {
+                    const found = this.ingList.find(ing => ing.id === id);
+                    return found ? found.name : id;
+                });
+                desc = ingNames.join(', ');
+            } else {
+                desc = 'Sin ingredientes adicionales';
+            }
+        }
+
         // Add the current quantity of calzones to the cart
         for(let i=0; i < this.state.qty; i++) {
-            cartApp.addItem(name, price, img);
+            cartApp.addItem(name, price, img, desc);
         }
 
         // Reset quantity back to 1 after adding
