@@ -79,6 +79,122 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// --- Cart Logic ---
+const cartApp = {
+    state: {
+        items: [],
+        isOpen: false
+    },
+
+    init() {
+        this.updateBadge();
+        this.renderCart();
+    },
+
+    toggleModal() {
+        const modal = document.getElementById('cart-modal');
+        if (!modal) return;
+        this.state.isOpen = !this.state.isOpen;
+        modal.classList.toggle('hidden', !this.state.isOpen);
+    },
+
+    addItem(name, price, imageSrc, desc = '') {
+        // Check if item exists (simple match by name)
+        const existing = this.state.items.find(i => i.name === name);
+        if (existing) {
+            existing.qty += 1;
+        } else {
+            this.state.items.push({
+                id: Date.now().toString(),
+                name,
+                price: parseFloat(price),
+                imageSrc,
+                desc,
+                qty: 1
+            });
+        }
+        this.updateBadge();
+        this.renderCart();
+
+        // Show subtle feedback (optional, we'll just update the UI)
+    },
+
+    updateBadge() {
+        const badge = document.getElementById('cart-badge');
+        if (!badge) return;
+
+        const totalItems = this.state.items.reduce((sum, item) => sum + item.qty, 0);
+        badge.innerText = totalItems;
+
+        if (totalItems > 0) {
+            badge.classList.remove('hidden');
+        } else {
+            badge.classList.add('hidden');
+        }
+    },
+
+    renderCart() {
+        const container = document.getElementById('cart-items-container');
+        const emptyState = document.getElementById('cart-empty-state');
+        const totalEl = document.getElementById('cart-total-price');
+
+        if (!container || !emptyState || !totalEl) return;
+
+        if (this.state.items.length === 0) {
+            container.innerHTML = '';
+            container.classList.add('hidden');
+            emptyState.classList.remove('hidden');
+            totalEl.innerText = 'S/ 0.00';
+            return;
+        }
+
+        container.classList.remove('hidden');
+        emptyState.classList.add('hidden');
+
+        let html = '';
+        let total = 0;
+
+        this.state.items.forEach(item => {
+            const itemTotal = item.price * item.qty;
+            total += itemTotal;
+            html += `
+                <div class="bg-[#f8f9fa] rounded-xl p-3 flex items-center gap-4 border border-gray-100">
+                    <div class="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0">
+                        <img src="${item.imageSrc}" alt="${item.name}" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex-grow min-w-0">
+                        <h4 class="font-bold text-gray-800 text-sm truncate">${item.name}</h4>
+                        <div class="text-xs text-gray-400 mt-0.5 truncate">S/ ${item.price.toFixed(2)} x ${item.qty}</div>
+                    </div>
+                    <div class="font-bold text-gray-800 whitespace-nowrap">S/ ${itemTotal.toFixed(2)}</div>
+                </div>
+            `;
+        });
+
+        container.innerHTML = html;
+        totalEl.innerText = `S/ ${total.toFixed(2)}`;
+    }
+};
+
+// Bind existing menu '+' buttons
+function bindGridAddButtons() {
+    const gridItems = document.querySelectorAll('.grid > div');
+    gridItems.forEach(item => {
+        const addBtn = item.querySelector('button');
+        if (addBtn && !addBtn.hasAttribute('onclick')) {
+            addBtn.addEventListener('click', () => {
+                const name = item.querySelector('h4').innerText;
+                const priceStr = item.querySelector('.text-primary.font-bold').innerText;
+                const price = priceStr.replace('S/ ', '').trim();
+                const img = item.querySelector('img').src;
+
+                cartApp.addItem(name, price, img);
+            });
+        }
+    });
+}
+
+
 // --- Calzone App Logic ---
 const calzoneApp = {
     state: {
@@ -291,10 +407,28 @@ const calzoneApp = {
 
         if(sPrice) sPrice.innerHTML = `<span class="text-sm sm:text-base">S/</span><span>${total.toFixed(2)}</span>`;
         if(bPrice) bPrice.innerText = priceStr;
+    },
+
+    addToCart() {
+        const titleMap = { tradicional: 'Tradicional', vegetariano: 'Vegetariano', amigusto: 'A Mi Gusto' };
+        const name = `Calzone ${titleMap[this.state.type]}`;
+        const price = this.prices[this.state.type];
+        const img = 'IM/CAL.jpg';
+
+        // Add the current quantity of calzones to the cart
+        for(let i=0; i < this.state.qty; i++) {
+            cartApp.addItem(name, price, img);
+        }
+
+        // Reset quantity back to 1 after adding
+        this.state.qty = 1;
+        this.updateUI();
     }
 };
 
-// Initialize calzone app when DOM is loaded
+// Initialize apps when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
+    cartApp.init();
     calzoneApp.init();
+    bindGridAddButtons();
 });

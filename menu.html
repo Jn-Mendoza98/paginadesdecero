@@ -49,9 +49,9 @@
 <a class="hidden lg:inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-bold text-white bg-primary hover:bg-red-700 transition uppercase" href="index.html#">
                         Pedir Ahora
                     </a>
-<button class="relative text-white hover:text-primary transition">
+<button id="cart-toggle-btn" class="relative text-white hover:text-primary transition" onclick="cartApp.toggleModal()">
 <i class="fas fa-shopping-cart text-xl"></i>
-<span class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">0</span>
+<span id="cart-badge" class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
 </button>
 </div>
 </div>
@@ -280,7 +280,7 @@
 
                             <!-- Add Button -->
                             <div class="flex items-center flex-shrink-0">
-                                <button class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition shadow-sm">
+                                <button onclick="calzoneApp.addToCart()" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition shadow-sm">
                                     <i class="fas fa-plus text-sm sm:text-base"></i>
                                 </button>
                             </div>
@@ -418,6 +418,49 @@
 </ul>
 </div>
 </div>
+<!-- Cart Modal -->
+<div id="cart-modal" class="fixed inset-0 bg-black/60 z-[100] flex items-center justify-center p-4 hidden">
+    <div class="bg-white w-full max-w-md rounded-xl shadow-2xl overflow-hidden flex flex-col">
+        <!-- Modal Header -->
+        <div class="bg-[#111] text-white p-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fas fa-receipt text-primary text-xl"></i>
+                <h2 class="font-bold text-lg tracking-wide">RESUMEN DE PEDIDO</h2>
+            </div>
+            <button onclick="cartApp.toggleModal()" class="text-white hover:text-primary transition">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+
+        <!-- Modal Body / Items List -->
+        <div id="cart-items-container" class="p-4 flex-grow overflow-y-auto max-h-[60vh] space-y-3 bg-[#fdfdfd]">
+            <!-- Items injected by JS -->
+        </div>
+
+        <!-- Empty State (Hidden by default) -->
+        <div id="cart-empty-state" class="p-8 text-center text-gray-500 hidden">
+            <i class="fas fa-shopping-basket text-4xl mb-3 text-gray-300"></i>
+            <p>Tu carrito está vacío.</p>
+        </div>
+
+        <!-- Total Area -->
+        <div class="p-4 border-t border-gray-100 bg-white">
+            <div class="flex items-center justify-between font-bold text-gray-800 text-lg mb-6 pt-2">
+                <span class="text-[#3a4454] uppercase tracking-wide">TOTAL GENERAL</span>
+                <span id="cart-total-price" class="text-primary text-2xl">S/ 0.00</span>
+            </div>
+            <div class="flex justify-end gap-3 border-t border-gray-100 pt-4">
+                <button onclick="cartApp.toggleModal()" class="px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 font-bold hover:bg-gray-50 transition bg-white shadow-sm text-sm">
+                    Cerrar
+                </button>
+                <button class="px-5 py-2.5 rounded-lg bg-primary text-white font-bold hover:bg-red-700 transition shadow-sm text-sm">
+                    Finalizar Pedido
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Bottom Footer: Copyright & Payments -->
 <div class="pt-8 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between gap-6 md:gap-4">
 <p class="text-gray-500 text-[10px] sm:text-xs text-center md:text-left">
