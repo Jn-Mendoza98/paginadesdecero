@@ -87,8 +87,28 @@ const cartApp = {
     },
 
     init() {
+        this.loadCart();
         this.updateBadge();
         this.renderCart();
+    },
+
+    loadCart() {
+        try {
+            const savedItems = localStorage.getItem('chezMaggyCart');
+            if (savedItems) {
+                this.state.items = JSON.parse(savedItems);
+            }
+        } catch (e) {
+            console.error('Error loading cart from localStorage', e);
+        }
+    },
+
+    saveCart() {
+        try {
+            localStorage.setItem('chezMaggyCart', JSON.stringify(this.state.items));
+        } catch (e) {
+            console.error('Error saving cart to localStorage', e);
+        }
     },
 
     toggleModal() {
@@ -113,6 +133,7 @@ const cartApp = {
                 qty: 1
             });
         }
+        this.saveCart();
         this.updateBadge();
         this.renderCart();
 
