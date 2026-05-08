@@ -475,9 +475,44 @@ const calzoneApp = {
     }
 };
 
+// --- Pizza Search Logic ---
+function initPizzaSearch() {
+    const searchInput = document.getElementById('pizza-search-input');
+    const searchBtn = document.getElementById('pizza-search-btn');
+    const pizzaGrid = document.getElementById('pizza-grid');
+
+    if (!searchInput || !pizzaGrid) return;
+
+    const pizzaCards = Array.from(pizzaGrid.children);
+
+    function filterPizzas() {
+        const query = searchInput.value.toLowerCase().trim();
+
+        pizzaCards.forEach(card => {
+            const titleEl = card.querySelector('h4');
+            const descEl = card.querySelector('p.line-clamp-2');
+
+            const title = titleEl ? titleEl.innerText.toLowerCase() : '';
+            const desc = descEl ? descEl.innerText.toLowerCase() : '';
+
+            if (title.includes(query) || desc.includes(query)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    searchInput.addEventListener('input', filterPizzas);
+    if (searchBtn) {
+        searchBtn.addEventListener('click', filterPizzas);
+    }
+}
+
 // Initialize apps when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     cartApp.init();
     calzoneApp.init();
     bindGridAddButtons();
+    initPizzaSearch();
 });
