@@ -147,7 +147,72 @@ const cartApp = {
         this.updateBadge();
         this.renderCart();
 
-        // Show subtle feedback (optional, we'll just update the UI)
+        // Trigger fly animation
+        this.flyToCart(imageSrc);
+    },
+
+    flyToCart(imageSrc, eventOrButton = null) {
+        // Find the event target that triggered this if it exists
+        let eventTarget = null;
+
+        if (eventOrButton) {
+            if (eventOrButton.target) {
+                eventTarget = eventOrButton.target.closest('button');
+            } else if (eventOrButton.tagName === 'BUTTON') {
+                eventTarget = eventOrButton;
+            }
+        }
+
+        if (!eventTarget && window.event && window.event.target) {
+             eventTarget = window.event.target.closest('button');
+        }
+
+        if (!eventTarget) return;
+
+        const cartBtn = document.getElementById('cart-toggle-btn');
+        if (!cartBtn) return;
+
+        const targetRect = eventTarget.getBoundingClientRect();
+        const cartRect = cartBtn.getBoundingClientRect();
+
+        const img = document.createElement('img');
+        img.src = imageSrc;
+        img.className = 'flying-item';
+
+        // Initial position
+        const startX = targetRect.left + (targetRect.width / 2) - 25;
+        const startY = targetRect.top + (targetRect.height / 2) - 25;
+
+        img.style.left = `${startX}px`;
+        img.style.top = `${startY}px`;
+        img.style.opacity = '1';
+        img.style.transform = 'scale(1)';
+
+        document.body.appendChild(img);
+
+        // Force reflow
+        void img.offsetWidth;
+
+        // Final position
+        const endX = cartRect.left + (cartRect.width / 2) - 25;
+        const endY = cartRect.top + (cartRect.height / 2) - 25;
+
+        img.style.left = `${endX}px`;
+        img.style.top = `${endY}px`;
+        img.style.opacity = '0.5';
+        img.style.transform = 'scale(0.2)';
+
+        // Clean up after animation
+        img.addEventListener('transitionend', () => {
+            if (img.parentNode) {
+                img.parentNode.removeChild(img);
+            }
+            // Optional: add a small bounce animation to the cart icon
+            cartBtn.classList.add('scale-110');
+            setTimeout(() => {
+                cartBtn.classList.remove('scale-110');
+            }, 200);
+        });
     },
 
     updateBadge() {

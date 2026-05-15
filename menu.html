@@ -157,7 +157,6 @@
 
 <!-- Pizza Menu Section -->
 <section id="pizzas-menu" class="py-12 bg-white border-t border-gray-100 menu-section" data-category="pizzas">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-center items-center gap-3 mb-6 text-center">
         <i class="fas fa-pizza-slice text-primary text-2xl hidden sm:inline-block"></i>
         <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-wider text-dark w-full sm:w-auto">Nuestras Pizzas Tradicionales</h2>
@@ -166,28 +165,21 @@
 
     <!-- Search Bar Container -->
     <div class="flex justify-center mb-8 px-4">
-        <div class="w-full max-w-lg flex items-center bg-white border border-gray-200 rounded-full shadow-sm overflow-hidden focus-within:border-primary focus-within:ring-1 focus-within:ring-primary transition-all">
-            <!-- Left icon (Pizza) -->
-            <div class="pl-5 pr-2 flex items-center justify-center text-xl text-primary">
-                <i class="fas fa-pizza-slice"></i>
-            </div>
-
-            <!-- Input Field -->
+        <div class="relative w-full max-w-md flex items-center">
+            <i class="fas fa-search absolute left-4 text-gray-400"></i>
             <input
                 type="text"
                 id="pizza-search-input"
-                placeholder="Buscar pizzas..."
-                class="flex-grow bg-transparent border-none outline-none text-gray-700 text-sm sm:text-base py-3 px-2 placeholder-gray-400"
+                placeholder="Buscar por nombre o ingredientes..."
+                class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-200 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-sm transition-all"
             >
-
-            <!-- Right Search Button -->
-            <button id="pizza-search-btn" class="bg-primary text-white h-full px-6 py-3 flex items-center justify-center hover:bg-red-700 transition">
-                <i class="fas fa-search"></i>
+            <button id="pizza-search-btn" class="absolute right-2 bg-primary text-white p-2 rounded-full hover:bg-red-700 transition-colors shadow-sm">
+                <i class="fas fa-arrow-right"></i>
             </button>
         </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="pizza-grid">
+    <div id="pizza-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
         <!-- Pizza 1 -->
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
@@ -209,9 +201,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/25.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Americana (Familiar)', 35.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/35.00</span>
+                        <button onclick="cartApp.addItem('Americana (Grande)', 35.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/35.00</span>
                         </button>
                     </div>
                 </div>
@@ -238,9 +230,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/26.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Hawaiana (Familiar)', 36.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/36.00</span>
+                        <button onclick="cartApp.addItem('Hawaiana (Grande)', 36.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/36.00</span>
                         </button>
                     </div>
                 </div>
@@ -267,9 +259,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/27.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Pepperoni (Familiar)', 37.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/37.00</span>
+                        <button onclick="cartApp.addItem('Pepperoni (Grande)', 37.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/37.00</span>
                         </button>
                     </div>
                 </div>
@@ -296,9 +288,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/28.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Vegetariana (Familiar)', 38.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/38.00</span>
+                        <button onclick="cartApp.addItem('Vegetariana (Grande)', 38.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/38.00</span>
                         </button>
                     </div>
                 </div>
@@ -325,9 +317,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/30.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Meat Lover (Familiar)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/42.00</span>
+                        <button onclick="cartApp.addItem('Meat Lover (Grande)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/42.00</span>
                         </button>
                     </div>
                 </div>
@@ -354,9 +346,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/32.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Suprema (Familiar)', 44.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/44.00</span>
+                        <button onclick="cartApp.addItem('Suprema (Grande)', 44.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/44.00</span>
                         </button>
                     </div>
                 </div>
@@ -383,9 +375,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/26.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Margarita (Familiar)', 35.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/35.00</span>
+                        <button onclick="cartApp.addItem('Margarita (Grande)', 35.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/35.00</span>
                         </button>
                     </div>
                 </div>
@@ -412,9 +404,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/29.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Mexicana (Familiar)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/40.00</span>
+                        <button onclick="cartApp.addItem('Mexicana (Grande)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/40.00</span>
                         </button>
                     </div>
                 </div>
@@ -441,9 +433,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/32.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Cuatro Quesos (Familiar)', 45.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/45.00</span>
+                        <button onclick="cartApp.addItem('Cuatro Quesos (Grande)', 45.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/45.00</span>
                         </button>
                     </div>
                 </div>
@@ -470,9 +462,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/29.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('BBQ Chicken (Familiar)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/40.00</span>
+                        <button onclick="cartApp.addItem('BBQ Chicken (Grande)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/40.00</span>
                         </button>
                     </div>
                 </div>
@@ -499,9 +491,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/34.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Italiana (Familiar)', 46.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/46.00</span>
+                        <button onclick="cartApp.addItem('Italiana (Grande)', 46.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/46.00</span>
                         </button>
                     </div>
                 </div>
@@ -528,9 +520,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/28.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Chorizo (Familiar)', 38.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/38.00</span>
+                        <button onclick="cartApp.addItem('Chorizo (Grande)', 38.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/38.00</span>
                         </button>
                     </div>
                 </div>
@@ -557,9 +549,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/27.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Napolitana (Familiar)', 37.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/37.00</span>
+                        <button onclick="cartApp.addItem('Napolitana (Grande)', 37.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/37.00</span>
                         </button>
                     </div>
                 </div>
@@ -586,9 +578,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/30.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Prosciutto e Funghi (Familiar)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/42.00</span>
+                        <button onclick="cartApp.addItem('Prosciutto e Funghi (Grande)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/42.00</span>
                         </button>
                     </div>
                 </div>
@@ -615,9 +607,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/31.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Capricciosa (Familiar)', 43.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/43.00</span>
+                        <button onclick="cartApp.addItem('Capricciosa (Grande)', 43.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/43.00</span>
                         </button>
                     </div>
                 </div>
@@ -644,9 +636,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/29.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Diavola (Familiar)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/40.00</span>
+                        <button onclick="cartApp.addItem('Diavola (Grande)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/40.00</span>
                         </button>
                     </div>
                 </div>
@@ -673,9 +665,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/28.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Pollo y Champiñones (Familiar)', 39.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/39.00</span>
+                        <button onclick="cartApp.addItem('Pollo y Champiñones (Grande)', 39.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/39.00</span>
                         </button>
                     </div>
                 </div>
@@ -702,9 +694,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/29.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Bacon & Egg (Familiar)', 41.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/41.00</span>
+                        <button onclick="cartApp.addItem('Bacon & Egg (Grande)', 41.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/41.00</span>
                         </button>
                     </div>
                 </div>
@@ -731,9 +723,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/30.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Pesto y Tomate (Familiar)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/42.00</span>
+                        <button onclick="cartApp.addItem('Pesto y Tomate (Grande)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/42.00</span>
                         </button>
                     </div>
                 </div>
@@ -760,9 +752,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/35.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Española (Familiar)', 48.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/48.00</span>
+                        <button onclick="cartApp.addItem('Española (Grande)', 48.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/48.00</span>
                         </button>
                     </div>
                 </div>
@@ -789,9 +781,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/38.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Mariscos (Familiar)', 50.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/50.00</span>
+                        <button onclick="cartApp.addItem('Mariscos (Grande)', 50.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/50.00</span>
                         </button>
                     </div>
                 </div>
@@ -818,9 +810,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/31.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Alpina (Familiar)', 44.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/44.00</span>
+                        <button onclick="cartApp.addItem('Alpina (Grande)', 44.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/44.00</span>
                         </button>
                     </div>
                 </div>
@@ -847,9 +839,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/30.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Andina (Familiar)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/42.00</span>
+                        <button onclick="cartApp.addItem('Andina (Grande)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/42.00</span>
                         </button>
                     </div>
                 </div>
@@ -876,9 +868,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/29.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Mediterránea (Familiar)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/40.00</span>
+                        <button onclick="cartApp.addItem('Mediterránea (Grande)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/40.00</span>
                         </button>
                     </div>
                 </div>
@@ -905,9 +897,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/36.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Gourmet (Familiar)', 49.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/49.00</span>
+                        <button onclick="cartApp.addItem('Gourmet (Grande)', 49.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/49.00</span>
                         </button>
                     </div>
                 </div>
@@ -934,9 +926,9 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/28.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Rústica (Familiar)', 39.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/39.00</span>
+                        <button onclick="cartApp.addItem('Rústica (Grande)', 39.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/39.00</span>
                         </button>
                     </div>
                 </div>
@@ -963,16 +955,15 @@
                             <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
                             <span class="text-[10px] text-gray-500">S/35.00</span>
                         </button>
-                        <button onclick="cartApp.addItem('Especial de la Casa (Familiar)', 50.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group bg-primary/5 border-primary/30">
-                            <span class="text-xs font-bold text-primary">F</span>
-                            <span class="text-[10px] text-primary">S/50.00</span>
+                        <button onclick="cartApp.addItem('Especial de la Casa (Grande)', 50.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
+                            <span class="text-xs font-bold text-primary">G</span>
+                            <span class="text-[10px] text-gray-500">S/50.00</span>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
 
-    </div>
     </div>
 </section>
 
