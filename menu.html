@@ -51,7 +51,7 @@
                     </a>
 <button id="cart-toggle-btn" class="relative text-white hover:text-primary transition" onclick="cartApp.toggleModal()">
 <i class="fas fa-shopping-cart text-xl"></i>
-<span id="cart-badge" class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+<span id="cart-badge" class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center hidden"></span>
 </button>
 </div>
 </div>
@@ -157,814 +157,1141 @@
 
 <!-- Pizza Menu Section -->
 <section id="pizzas-menu" class="py-12 bg-white border-t border-gray-100 menu-section" data-category="pizzas">
-    <div class="flex justify-center items-center gap-3 mb-6 text-center">
-        <i class="fas fa-pizza-slice text-primary text-2xl hidden sm:inline-block"></i>
-        <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-wider text-dark w-full sm:w-auto">Nuestras Pizzas Tradicionales</h2>
-        <i class="fas fa-pizza-slice text-primary text-2xl hidden sm:inline-block"></i>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center gap-3 mb-8">
+        <i class="fas fa-pizza-slice text-primary text-2xl"></i>
+        <h2 class="text-2xl sm:text-3xl font-bold uppercase tracking-wider text-dark">Nuestras Pizzas Tradicionales</h2>
+        <div class="h-1 flex-grow bg-gradient-to-r from-primary to-transparent rounded-full ml-4 opacity-20"></div>
     </div>
 
     <!-- Search Bar Container -->
-    <div class="flex justify-center mb-8 px-4">
-        <div class="relative w-full max-w-md flex items-center">
-            <i class="fas fa-search absolute left-4 text-gray-400"></i>
+    <div class="flex justify-center mb-10 px-4 relative z-10">
+        <div class="relative w-full max-w-lg flex items-center bg-white rounded-full shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-gray-100 p-1 hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-shadow duration-300">
+            <div class="pl-5 pr-3 text-gray-400">
+                <i class="fas fa-search text-lg"></i>
+            </div>
             <input
                 type="text"
                 id="pizza-search-input"
-                placeholder="Buscar por nombre o ingredientes..."
-                class="w-full pl-12 pr-4 py-3 rounded-full border border-gray-200 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary shadow-sm transition-all"
+                placeholder="Busca tu pizza favorita..."
+                class="w-full py-3 bg-transparent border-none focus:outline-none text-gray-700 font-medium placeholder-gray-400"
             >
-            <button id="pizza-search-btn" class="absolute right-2 bg-primary text-white p-2 rounded-full hover:bg-red-700 transition-colors shadow-sm">
-                <i class="fas fa-arrow-right"></i>
+            <button id="pizza-search-btn" class="bg-gradient-to-r from-primary to-red-700 text-white px-6 py-3 rounded-full hover:shadow-lg hover:from-red-700 hover:to-red-800 transition-all duration-300 font-bold flex items-center gap-2">
+                <span class="hidden sm:inline">Buscar</span>
+                <i class="fas fa-arrow-right sm:hidden"></i>
             </button>
         </div>
     </div>
-
     <div id="pizza-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
         <!-- Pizza 1 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Americana" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Americana" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Americana</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Jamón, queso mozzarella y salsa de tomate.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Americana</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Jamón, queso mozzarella y salsa de tomate.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Americana (Personal)', 15.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-900 group-hover:text-primary">PERSONAL</span>
-                            <span class="text-sm text-gray-600 font-medium">S/22.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '1', 'S/15.00', `cartApp.addItem('Americana (Personal)', 15.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="1">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Americana (Mediana)', 25.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-900 group-hover:text-primary">MEDIANA</span>
-                            <span class="text-sm text-gray-600 font-medium">S/41.00</span>
+                        <button onclick="selectPizzaSize(this, '1', 'S/25.00', `cartApp.addItem('Americana (Mediana)', 25.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="1">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Americana (Grande)', 35.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-text-gray-900 group-hover:text-primary">FAMILIAR</span>
-                            <span class="text-sm text-gray-600 font-medium">S/54.00</span>
+                        <button onclick="selectPizzaSize(this, '1', 'S/35.00', `cartApp.addItem('Americana (Grande)', 35.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="1">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-1" onclick="cartApp.addItem('Americana (Personal)', 15.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-1" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/15.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 2 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Hawaiana" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Hawaiana" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Hawaiana</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Jamón, piña, queso mozzarella y salsa de tomate.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Hawaiana</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Jamón, piña, queso mozzarella y salsa de tomate.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Hawaiana (Personal)', 16.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/16.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '2', 'S/16.00', `cartApp.addItem('Hawaiana (Personal)', 16.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="2">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Hawaiana (Mediana)', 26.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/26.00</span>
+                        <button onclick="selectPizzaSize(this, '2', 'S/26.00', `cartApp.addItem('Hawaiana (Mediana)', 26.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="2">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Hawaiana (Grande)', 36.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-sm text-gray-600 font-medium">S/36.00</span>
+                        <button onclick="selectPizzaSize(this, '2', 'S/36.00', `cartApp.addItem('Hawaiana (Grande)', 36.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="2">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-2" onclick="cartApp.addItem('Hawaiana (Personal)', 16.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-2" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/16.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 3 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pepperoni" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pepperoni" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Pepperoni</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Pepperoni, queso mozzarella y salsa de tomate.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Pepperoni</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Pepperoni, queso mozzarella y salsa de tomate.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Pepperoni (Personal)', 17.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/17.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '3', 'S/17.00', `cartApp.addItem('Pepperoni (Personal)', 17.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="3">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Pepperoni (Mediana)', 27.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/27.00</span>
+                        <button onclick="selectPizzaSize(this, '3', 'S/27.00', `cartApp.addItem('Pepperoni (Mediana)', 27.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="3">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Pepperoni (Grande)', 37.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/37.00</span>
+                        <button onclick="selectPizzaSize(this, '3', 'S/37.00', `cartApp.addItem('Pepperoni (Grande)', 37.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="3">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-3" onclick="cartApp.addItem('Pepperoni (Personal)', 17.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-3" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/17.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 4 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Vegetariana" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Vegetariana" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Vegetariana</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Champiñones, pimientos, cebolla, aceitunas y mozzarella.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Vegetariana</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Champiñones, pimientos, cebolla, aceitunas y mozzarella.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Vegetariana (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/18.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '4', 'S/18.00', `cartApp.addItem('Vegetariana (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="4">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Vegetariana (Mediana)', 28.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/28.00</span>
+                        <button onclick="selectPizzaSize(this, '4', 'S/28.00', `cartApp.addItem('Vegetariana (Mediana)', 28.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="4">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Vegetariana (Grande)', 38.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/38.00</span>
+                        <button onclick="selectPizzaSize(this, '4', 'S/38.00', `cartApp.addItem('Vegetariana (Grande)', 38.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="4">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-4" onclick="cartApp.addItem('Vegetariana (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-4" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/18.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 5 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Meat Lover" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Meat Lover" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Meat Lover</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Jamón, pepperoni, tocino, salchicha y mozzarella.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Meat Lover</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Jamón, pepperoni, tocino, salchicha y mozzarella.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Meat Lover (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/20.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '5', 'S/20.00', `cartApp.addItem('Meat Lover (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="5">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Meat Lover (Mediana)', 30.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/30.00</span>
+                        <button onclick="selectPizzaSize(this, '5', 'S/30.00', `cartApp.addItem('Meat Lover (Mediana)', 30.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="5">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Meat Lover (Grande)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/42.00</span>
+                        <button onclick="selectPizzaSize(this, '5', 'S/42.00', `cartApp.addItem('Meat Lover (Grande)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="5">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-5" onclick="cartApp.addItem('Meat Lover (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-5" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/20.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 6 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Suprema" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Suprema" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Suprema</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Pepperoni, salchicha, pimientos, cebolla, champiñones y aceitunas.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Suprema</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Pepperoni, salchicha, pimientos, cebolla, champiñones y aceitunas.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Suprema (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/20.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '6', 'S/20.00', `cartApp.addItem('Suprema (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="6">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Suprema (Mediana)', 32.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/32.00</span>
+                        <button onclick="selectPizzaSize(this, '6', 'S/32.00', `cartApp.addItem('Suprema (Mediana)', 32.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="6">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Suprema (Grande)', 44.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/44.00</span>
+                        <button onclick="selectPizzaSize(this, '6', 'S/44.00', `cartApp.addItem('Suprema (Grande)', 44.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="6">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-6" onclick="cartApp.addItem('Suprema (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-6" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/20.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 7 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Margarita" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Margarita" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Margarita</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Tomate fresco, albahaca, queso mozzarella y aceite de oliva.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Margarita</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Tomate fresco, albahaca, queso mozzarella y aceite de oliva.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Margarita (Personal)', 16.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/16.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '7', 'S/16.00', `cartApp.addItem('Margarita (Personal)', 16.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="7">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Margarita (Mediana)', 26.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/26.00</span>
+                        <button onclick="selectPizzaSize(this, '7', 'S/26.00', `cartApp.addItem('Margarita (Mediana)', 26.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="7">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Margarita (Grande)', 35.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/35.00</span>
+                        <button onclick="selectPizzaSize(this, '7', 'S/35.00', `cartApp.addItem('Margarita (Grande)', 35.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="7">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-7" onclick="cartApp.addItem('Margarita (Personal)', 16.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-7" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/16.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 8 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Mexicana" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Mexicana" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Mexicana</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Carne molida, jalapeños, cebolla, pimientos y mozzarella.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Mexicana</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Carne molida, jalapeños, cebolla, pimientos y mozzarella.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Mexicana (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/19.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '8', 'S/19.00', `cartApp.addItem('Mexicana (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="8">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Mexicana (Mediana)', 29.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/29.00</span>
+                        <button onclick="selectPizzaSize(this, '8', 'S/29.00', `cartApp.addItem('Mexicana (Mediana)', 29.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="8">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Mexicana (Grande)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/40.00</span>
+                        <button onclick="selectPizzaSize(this, '8', 'S/40.00', `cartApp.addItem('Mexicana (Grande)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="8">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-8" onclick="cartApp.addItem('Mexicana (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-8" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/19.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 9 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Cuatro Quesos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Cuatro Quesos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Cuatro Quesos</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Mozzarella, parmesano, provolone y queso azul.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Cuatro Quesos</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Mozzarella, parmesano, provolone y queso azul.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Cuatro Quesos (Personal)', 22.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/22.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '9', 'S/22.00', `cartApp.addItem('Cuatro Quesos (Personal)', 22.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="9">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Cuatro Quesos (Mediana)', 32.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/32.00</span>
+                        <button onclick="selectPizzaSize(this, '9', 'S/32.00', `cartApp.addItem('Cuatro Quesos (Mediana)', 32.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="9">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Cuatro Quesos (Grande)', 45.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/45.00</span>
+                        <button onclick="selectPizzaSize(this, '9', 'S/45.00', `cartApp.addItem('Cuatro Quesos (Grande)', 45.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="9">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-9" onclick="cartApp.addItem('Cuatro Quesos (Personal)', 22.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-9" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/22.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 10 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="BBQ Chicken" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="BBQ Chicken" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">BBQ Chicken</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Pollo, cebolla roja, cilantro, queso y salsa BBQ.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">BBQ Chicken</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Pollo, cebolla roja, cilantro, queso y salsa BBQ.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('BBQ Chicken (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/19.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '10', 'S/19.00', `cartApp.addItem('BBQ Chicken (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="10">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('BBQ Chicken (Mediana)', 29.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/29.00</span>
+                        <button onclick="selectPizzaSize(this, '10', 'S/29.00', `cartApp.addItem('BBQ Chicken (Mediana)', 29.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="10">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('BBQ Chicken (Grande)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/40.00</span>
+                        <button onclick="selectPizzaSize(this, '10', 'S/40.00', `cartApp.addItem('BBQ Chicken (Grande)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="10">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-10" onclick="cartApp.addItem('BBQ Chicken (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-10" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/19.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 11 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Italiana" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Italiana" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Italiana</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Prosciutto, rúcula, tomate cherry y parmesano.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Italiana</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Prosciutto, rúcula, tomate cherry y parmesano.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Italiana (Personal)', 22.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/22.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '11', 'S/22.00', `cartApp.addItem('Italiana (Personal)', 22.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="11">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Italiana (Mediana)', 34.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/34.00</span>
+                        <button onclick="selectPizzaSize(this, '11', 'S/34.00', `cartApp.addItem('Italiana (Mediana)', 34.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="11">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Italiana (Grande)', 46.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/46.00</span>
+                        <button onclick="selectPizzaSize(this, '11', 'S/46.00', `cartApp.addItem('Italiana (Grande)', 46.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="11">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-11" onclick="cartApp.addItem('Italiana (Personal)', 22.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-11" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/22.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 12 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Chorizo" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Chorizo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Chorizo</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Chorizo artesanal, cebolla caramelizada y mozzarella.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Chorizo</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Chorizo artesanal, cebolla caramelizada y mozzarella.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Chorizo (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/18.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '12', 'S/18.00', `cartApp.addItem('Chorizo (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="12">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Chorizo (Mediana)', 28.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/28.00</span>
+                        <button onclick="selectPizzaSize(this, '12', 'S/28.00', `cartApp.addItem('Chorizo (Mediana)', 28.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="12">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Chorizo (Grande)', 38.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/38.00</span>
+                        <button onclick="selectPizzaSize(this, '12', 'S/38.00', `cartApp.addItem('Chorizo (Grande)', 38.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="12">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-12" onclick="cartApp.addItem('Chorizo (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-12" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/18.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 13 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Napolitana" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Napolitana" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Napolitana</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Anchoas, alcaparras, orégano, ajo y mozzarella.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Napolitana</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Anchoas, alcaparras, orégano, ajo y mozzarella.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Napolitana (Personal)', 17.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/17.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '13', 'S/17.00', `cartApp.addItem('Napolitana (Personal)', 17.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="13">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Napolitana (Mediana)', 27.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/27.00</span>
+                        <button onclick="selectPizzaSize(this, '13', 'S/27.00', `cartApp.addItem('Napolitana (Mediana)', 27.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="13">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Napolitana (Grande)', 37.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/37.00</span>
+                        <button onclick="selectPizzaSize(this, '13', 'S/37.00', `cartApp.addItem('Napolitana (Grande)', 37.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="13">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-13" onclick="cartApp.addItem('Napolitana (Personal)', 17.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-13" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/17.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 14 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Prosciutto e Funghi" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Prosciutto e Funghi" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Prosciutto e Funghi</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Prosciutto, champiñones, mozzarella y salsa de tomate.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Prosciutto e Funghi</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Prosciutto, champiñones, mozzarella y salsa de tomate.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Prosciutto e Funghi (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/20.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '14', 'S/20.00', `cartApp.addItem('Prosciutto e Funghi (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="14">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Prosciutto e Funghi (Mediana)', 30.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/30.00</span>
+                        <button onclick="selectPizzaSize(this, '14', 'S/30.00', `cartApp.addItem('Prosciutto e Funghi (Mediana)', 30.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="14">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Prosciutto e Funghi (Grande)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/42.00</span>
+                        <button onclick="selectPizzaSize(this, '14', 'S/42.00', `cartApp.addItem('Prosciutto e Funghi (Grande)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="14">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-14" onclick="cartApp.addItem('Prosciutto e Funghi (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-14" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/20.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 15 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Capricciosa" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Capricciosa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Capricciosa</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Jamón, alcachofas, champiñones, aceitunas y mozzarella.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Capricciosa</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Jamón, alcachofas, champiñones, aceitunas y mozzarella.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Capricciosa (Personal)', 21.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/21.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '15', 'S/21.00', `cartApp.addItem('Capricciosa (Personal)', 21.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="15">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Capricciosa (Mediana)', 31.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/31.00</span>
+                        <button onclick="selectPizzaSize(this, '15', 'S/31.00', `cartApp.addItem('Capricciosa (Mediana)', 31.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="15">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Capricciosa (Grande)', 43.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/43.00</span>
+                        <button onclick="selectPizzaSize(this, '15', 'S/43.00', `cartApp.addItem('Capricciosa (Grande)', 43.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="15">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-15" onclick="cartApp.addItem('Capricciosa (Personal)', 21.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-15" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/21.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 16 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Diavola" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Diavola" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Diavola</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Salami picante, peperoncino, mozzarella y salsa.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Diavola</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Salami picante, peperoncino, mozzarella y salsa.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Diavola (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/19.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '16', 'S/19.00', `cartApp.addItem('Diavola (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="16">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Diavola (Mediana)', 29.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/29.00</span>
+                        <button onclick="selectPizzaSize(this, '16', 'S/29.00', `cartApp.addItem('Diavola (Mediana)', 29.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="16">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Diavola (Grande)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/40.00</span>
+                        <button onclick="selectPizzaSize(this, '16', 'S/40.00', `cartApp.addItem('Diavola (Grande)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="16">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-16" onclick="cartApp.addItem('Diavola (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-16" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/19.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 17 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pollo y Champiñones" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pollo y Champiñones" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Pollo y Champiñones</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Pollo desmenuzado, champiñones frescos y mozzarella.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Pollo y Champiñones</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Pollo desmenuzado, champiñones frescos y mozzarella.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Pollo y Champiñones (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/18.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '17', 'S/18.00', `cartApp.addItem('Pollo y Champiñones (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="17">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Pollo y Champiñones (Mediana)', 28.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/28.00</span>
+                        <button onclick="selectPizzaSize(this, '17', 'S/28.00', `cartApp.addItem('Pollo y Champiñones (Mediana)', 28.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="17">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Pollo y Champiñones (Grande)', 39.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/39.00</span>
+                        <button onclick="selectPizzaSize(this, '17', 'S/39.00', `cartApp.addItem('Pollo y Champiñones (Grande)', 39.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="17">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-17" onclick="cartApp.addItem('Pollo y Champiñones (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-17" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/18.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 18 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Bacon & Egg" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Bacon & Egg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Bacon & Egg</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Tocino crujiente, huevo frito, cebolla y mozzarella.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Bacon & Egg</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Tocino crujiente, huevo frito, cebolla y mozzarella.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Bacon & Egg (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/19.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '18', 'S/19.00', `cartApp.addItem('Bacon & Egg (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="18">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Bacon & Egg (Mediana)', 29.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/29.00</span>
+                        <button onclick="selectPizzaSize(this, '18', 'S/29.00', `cartApp.addItem('Bacon & Egg (Mediana)', 29.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="18">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Bacon & Egg (Grande)', 41.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/41.00</span>
+                        <button onclick="selectPizzaSize(this, '18', 'S/41.00', `cartApp.addItem('Bacon & Egg (Grande)', 41.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="18">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-18" onclick="cartApp.addItem('Bacon & Egg (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-18" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/19.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 19 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pesto y Tomate" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Pesto y Tomate" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Pesto y Tomate</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Salsa pesto, tomates secos, pollo y queso provolone.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Pesto y Tomate</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Salsa pesto, tomates secos, pollo y queso provolone.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Pesto y Tomate (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/20.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '19', 'S/20.00', `cartApp.addItem('Pesto y Tomate (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="19">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Pesto y Tomate (Mediana)', 30.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/30.00</span>
+                        <button onclick="selectPizzaSize(this, '19', 'S/30.00', `cartApp.addItem('Pesto y Tomate (Mediana)', 30.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="19">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Pesto y Tomate (Grande)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/42.00</span>
+                        <button onclick="selectPizzaSize(this, '19', 'S/42.00', `cartApp.addItem('Pesto y Tomate (Grande)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="19">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-19" onclick="cartApp.addItem('Pesto y Tomate (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-19" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/20.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 20 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Española" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Española" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Española</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Jamón serrano, pimientos asados, aceitunas y manchego.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Española</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Jamón serrano, pimientos asados, aceitunas y manchego.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Española (Personal)', 23.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/23.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '20', 'S/23.00', `cartApp.addItem('Española (Personal)', 23.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="20">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Española (Mediana)', 35.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/35.00</span>
+                        <button onclick="selectPizzaSize(this, '20', 'S/35.00', `cartApp.addItem('Española (Mediana)', 35.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="20">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Española (Grande)', 48.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/48.00</span>
+                        <button onclick="selectPizzaSize(this, '20', 'S/48.00', `cartApp.addItem('Española (Grande)', 48.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="20">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-20" onclick="cartApp.addItem('Española (Personal)', 23.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-20" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/23.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 21 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Mariscos" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Mariscos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Mariscos</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Camarones, calamares, mejillones, ajo y perejil.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Mariscos</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Camarones, calamares, mejillones, ajo y perejil.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Mariscos (Personal)', 25.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/25.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '21', 'S/25.00', `cartApp.addItem('Mariscos (Personal)', 25.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="21">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Mariscos (Mediana)', 38.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/38.00</span>
+                        <button onclick="selectPizzaSize(this, '21', 'S/38.00', `cartApp.addItem('Mariscos (Mediana)', 38.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="21">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Mariscos (Grande)', 50.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/50.00</span>
+                        <button onclick="selectPizzaSize(this, '21', 'S/50.00', `cartApp.addItem('Mariscos (Grande)', 50.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="21">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-21" onclick="cartApp.addItem('Mariscos (Personal)', 25.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-21" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/25.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 22 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Alpina" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Alpina" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Alpina</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Tocino, cebolla, papas, crema fresca y queso gruyere.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Alpina</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Tocino, cebolla, papas, crema fresca y queso gruyere.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Alpina (Personal)', 21.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/21.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '22', 'S/21.00', `cartApp.addItem('Alpina (Personal)', 21.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="22">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Alpina (Mediana)', 31.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/31.00</span>
+                        <button onclick="selectPizzaSize(this, '22', 'S/31.00', `cartApp.addItem('Alpina (Mediana)', 31.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="22">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Alpina (Grande)', 44.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/44.00</span>
+                        <button onclick="selectPizzaSize(this, '22', 'S/44.00', `cartApp.addItem('Alpina (Grande)', 44.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="22">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-22" onclick="cartApp.addItem('Alpina (Personal)', 21.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-22" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/21.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 23 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Andina" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Andina" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Andina</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Carne seca, maíz dulce, queso andino y salsa criolla.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Andina</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Carne seca, maíz dulce, queso andino y salsa criolla.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Andina (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/20.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '23', 'S/20.00', `cartApp.addItem('Andina (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="23">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Andina (Mediana)', 30.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/30.00</span>
+                        <button onclick="selectPizzaSize(this, '23', 'S/30.00', `cartApp.addItem('Andina (Mediana)', 30.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="23">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Andina (Grande)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/42.00</span>
+                        <button onclick="selectPizzaSize(this, '23', 'S/42.00', `cartApp.addItem('Andina (Grande)', 42.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="23">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-23" onclick="cartApp.addItem('Andina (Personal)', 20.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-23" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/20.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 24 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Mediterránea" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Mediterránea" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Mediterránea</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Queso feta, aceitunas kalamata, espinaca y tomate.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Mediterránea</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Queso feta, aceitunas kalamata, espinaca y tomate.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Mediterránea (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/19.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '24', 'S/19.00', `cartApp.addItem('Mediterránea (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="24">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Mediterránea (Mediana)', 29.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/29.00</span>
+                        <button onclick="selectPizzaSize(this, '24', 'S/29.00', `cartApp.addItem('Mediterránea (Mediana)', 29.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="24">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Mediterránea (Grande)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/40.00</span>
+                        <button onclick="selectPizzaSize(this, '24', 'S/40.00', `cartApp.addItem('Mediterránea (Grande)', 40.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="24">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-24" onclick="cartApp.addItem('Mediterránea (Personal)', 19.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-24" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/19.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 25 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Gourmet" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Gourmet" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Gourmet</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Queso de cabra, higos, prosciutto y reducción balsámica.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Gourmet</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Queso de cabra, higos, prosciutto y reducción balsámica.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Gourmet (Personal)', 24.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/24.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '25', 'S/24.00', `cartApp.addItem('Gourmet (Personal)', 24.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="25">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Gourmet (Mediana)', 36.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/36.00</span>
+                        <button onclick="selectPizzaSize(this, '25', 'S/36.00', `cartApp.addItem('Gourmet (Mediana)', 36.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="25">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Gourmet (Grande)', 49.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/49.00</span>
+                        <button onclick="selectPizzaSize(this, '25', 'S/49.00', `cartApp.addItem('Gourmet (Grande)', 49.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="25">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-25" onclick="cartApp.addItem('Gourmet (Personal)', 24.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-25" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/24.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 26 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Rústica" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Rústica" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Rústica</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Berenjena asada, calabacín, pimientos y queso ricotta.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Rústica</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Berenjena asada, calabacín, pimientos y queso ricotta.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Rústica (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/18.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '26', 'S/18.00', `cartApp.addItem('Rústica (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="26">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Rústica (Mediana)', 28.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/28.00</span>
+                        <button onclick="selectPizzaSize(this, '26', 'S/28.00', `cartApp.addItem('Rústica (Mediana)', 28.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="26">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Rústica (Grande)', 39.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/39.00</span>
+                        <button onclick="selectPizzaSize(this, '26', 'S/39.00', `cartApp.addItem('Rústica (Grande)', 39.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="26">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-26" onclick="cartApp.addItem('Rústica (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-26" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/18.00</span>
+                    </button>
                 </div>
             </div>
         </div>
 
         <!-- Pizza 27 -->
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="h-48 overflow-hidden relative">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Especial de la Casa" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
-
+        <div class="bg-white rounded-[24px] shadow-[0_4px_24px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-col hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-500 group relative">
+            <div class="h-48 overflow-hidden relative rounded-t-[24px] bg-gray-100">
+                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Especial de la Casa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
-            <div class="p-5 flex flex-col flex-grow">
-                <h4 class="font-bold text-dark text-lg mb-2">Especial de la Casa</h4>
-                <p class="text-gray-500 text-sm mb-4 line-clamp-2">Todos los ingredientes clásicos con un toque secreto.</p>
+            <div class="p-6 flex flex-col flex-grow bg-white relative z-10 -mt-2 rounded-t-[24px]">
+                <h4 class="font-bold text-gray-800 text-xl mb-1">Especial de la Casa</h4>
+                <p class="text-gray-500 text-xs mb-5 line-clamp-2 leading-relaxed">Todos los ingredientes clásicos con un toque secreto.</p>
+
                 <div class="mt-auto">
-                    <p class="text-xs text-gray-400 mb-2 font-medium uppercase tracking-wider">Elige tu tamaño:</p>
-                    <div class="grid grid-cols-3 gap-2">
-                        <button onclick="cartApp.addItem('Especial de la Casa (Personal)', 25.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">P</span>
-                            <span class="text-[10px] text-gray-500">S/25.00</span>
+                    <p class="text-[10px] text-gray-400 mb-3 font-semibold uppercase tracking-widest">Tamaño ideal para ti</p>
+                    <div class="flex gap-2 mb-2">
+
+                        <button onclick="selectPizzaSize(this, '27', 'S/25.00', `cartApp.addItem('Especial de la Casa (Personal)', 25.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]" data-pizza-id="27">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">PERSONAL</span>
                         </button>
-                        <button onclick="cartApp.addItem('Especial de la Casa (Mediana)', 35.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-gray-700 group-hover:text-primary">M</span>
-                            <span class="text-[10px] text-gray-500">S/35.00</span>
+                        <button onclick="selectPizzaSize(this, '27', 'S/35.00', `cartApp.addItem('Especial de la Casa (Mediana)', 35.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="27">
+                            <span class="absolute -top-3 bg-[#ffc107] text-[#5c4000] text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm z-20 whitespace-nowrap">Más popular</span>
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">MEDIANA</span>
                         </button>
-                        <button onclick="cartApp.addItem('Especial de la Casa (Grande)', 50.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="flex flex-col items-center justify-center py-2 px-1 border border-gray-200 rounded-lg hover:border-primary hover:bg-primary/5 transition-colors group">
-                            <span class="text-xs font-bold text-primary">G</span>
-                            <span class="text-[10px] text-gray-500">S/50.00</span>
+                        <button onclick="selectPizzaSize(this, '27', 'S/50.00', `cartApp.addItem('Especial de la Casa (Grande)', 50.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')`)" class="size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100" data-pizza-id="27">
+
+                            <span class="text-[10px] sm:text-[11px] font-bold tracking-wider z-10">FAMILIAR</span>
                         </button>
                     </div>
+
+                    <button id="add-btn-27" onclick="cartApp.addItem('Especial de la Casa (Personal)', 25.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')" class="w-full mt-5 bg-gradient-to-r from-primary to-red-700 text-white py-3 px-4 rounded-xl font-bold flex items-center justify-between hover:shadow-[0_8px_20px_rgba(230,33,23,0.4)] hover:-translate-y-0.5 transition-all duration-300 group">
+                        <div class="flex items-center gap-2">
+                            <div class="bg-white/20 p-1.5 rounded-lg group-hover:scale-110 transition-transform">
+                                <i class="fas fa-shopping-cart text-sm"></i>
+                            </div>
+                            <span class="text-sm tracking-wide">Agregar al carrito</span>
+                        </div>
+                        <span id="price-display-27" class="text-base font-bold bg-white/10 px-3 py-1 rounded-lg border border-white/20 transition-transform">S/25.00</span>
+                    </button>
                 </div>
             </div>
         </div>
-
     </div>
+</div>
 </section>
 
 <section class="py-12 bg-white border-t border-gray-100 menu-section hidden" data-category="calzone" id="calzone-menu">
@@ -1287,5 +1614,30 @@
 </div>
 </div>
 </div>
-</footer></body>
+</footer>
+<script>
+function selectPizzaSize(btn, pizzaIdx, price, callCode) {
+    const buttons = document.querySelectorAll(`button[data-pizza-id="${pizzaIdx}"]`);
+    buttons.forEach(b => {
+        b.className = "size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gray-50 text-gray-500 hover:bg-gray-100";
+    });
+
+    btn.className = "size-btn flex flex-col items-center justify-center py-2 px-1 rounded-xl transition-all duration-300 relative border-2 border-transparent w-full bg-gradient-to-br from-primary to-red-700 shadow-[0_4px_12px_rgba(230,33,23,0.3)] text-white scale-[1.02]";
+
+    const addBtn = document.getElementById(`add-btn-${pizzaIdx}`);
+    const priceDisplay = document.getElementById(`price-display-${pizzaIdx}`);
+
+    if (addBtn && priceDisplay) {
+        addBtn.setAttribute('onclick', callCode);
+        priceDisplay.innerText = price;
+
+        priceDisplay.classList.remove('scale-110');
+        void priceDisplay.offsetWidth;
+        priceDisplay.classList.add('scale-110');
+        setTimeout(() => priceDisplay.classList.remove('scale-110'), 200);
+    }
+}
+</script>
+</body>
+
 </html>

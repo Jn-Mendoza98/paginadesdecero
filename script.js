@@ -147,72 +147,7 @@ const cartApp = {
         this.updateBadge();
         this.renderCart();
 
-        // Trigger fly animation
-        this.flyToCart(imageSrc);
-    },
-
-    flyToCart(imageSrc, eventOrButton = null) {
-        // Find the event target that triggered this if it exists
-        let eventTarget = null;
-
-        if (eventOrButton) {
-            if (eventOrButton.target) {
-                eventTarget = eventOrButton.target.closest('button');
-            } else if (eventOrButton.tagName === 'BUTTON') {
-                eventTarget = eventOrButton;
-            }
-        }
-
-        if (!eventTarget && window.event && window.event.target) {
-             eventTarget = window.event.target.closest('button');
-        }
-
-        if (!eventTarget) return;
-
-        const cartBtn = document.getElementById('cart-toggle-btn');
-        if (!cartBtn) return;
-
-        const targetRect = eventTarget.getBoundingClientRect();
-        const cartRect = cartBtn.getBoundingClientRect();
-
-        const img = document.createElement('img');
-        img.src = imageSrc;
-        img.className = 'flying-item';
-
-        // Initial position
-        const startX = targetRect.left + (targetRect.width / 2) - 25;
-        const startY = targetRect.top + (targetRect.height / 2) - 25;
-
-        img.style.left = `${startX}px`;
-        img.style.top = `${startY}px`;
-        img.style.opacity = '1';
-        img.style.transform = 'scale(1)';
-
-        document.body.appendChild(img);
-
-        // Force reflow
-        void img.offsetWidth;
-
-        // Final position
-        const endX = cartRect.left + (cartRect.width / 2) - 25;
-        const endY = cartRect.top + (cartRect.height / 2) - 25;
-
-        img.style.left = `${endX}px`;
-        img.style.top = `${endY}px`;
-        img.style.opacity = '0.5';
-        img.style.transform = 'scale(0.2)';
-
-        // Clean up after animation
-        img.addEventListener('transitionend', () => {
-            if (img.parentNode) {
-                img.parentNode.removeChild(img);
-            }
-            // Optional: add a small bounce animation to the cart icon
-            cartBtn.classList.add('scale-110');
-            setTimeout(() => {
-                cartBtn.classList.remove('scale-110');
-            }, 200);
-        });
+        // Show subtle feedback (optional, we'll just update the UI)
     },
 
     updateBadge() {
@@ -540,44 +475,9 @@ const calzoneApp = {
     }
 };
 
-// --- Pizza Search Logic ---
-function initPizzaSearch() {
-    const searchInput = document.getElementById('pizza-search-input');
-    const searchBtn = document.getElementById('pizza-search-btn');
-    const pizzaGrid = document.getElementById('pizza-grid');
-
-    if (!searchInput || !pizzaGrid) return;
-
-    const pizzaCards = Array.from(pizzaGrid.children);
-
-    function filterPizzas() {
-        const query = searchInput.value.toLowerCase().trim();
-
-        pizzaCards.forEach(card => {
-            const titleEl = card.querySelector('h4');
-            const descEl = card.querySelector('p.line-clamp-2');
-
-            const title = titleEl ? titleEl.innerText.toLowerCase() : '';
-            const desc = descEl ? descEl.innerText.toLowerCase() : '';
-
-            if (title.includes(query) || desc.includes(query)) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
-        });
-    }
-
-    searchInput.addEventListener('input', filterPizzas);
-    if (searchBtn) {
-        searchBtn.addEventListener('click', filterPizzas);
-    }
-}
-
 // Initialize apps when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     cartApp.init();
     calzoneApp.init();
     bindGridAddButtons();
-    initPizzaSearch();
 });
