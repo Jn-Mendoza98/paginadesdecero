@@ -22,7 +22,7 @@ tailwind.config = {
 const vegApp = {
     state: {
         isOpen: false,
-        limit: 10,
+        limit: 4,
         selected: [],
         currentCall: "cartApp.addItem('Vegetariana (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')"
     },
@@ -94,12 +94,11 @@ const vegApp = {
     },
 
     updateLimit(limit, callCode) {
-        // limit is hardcoded to 10 for all sizes based on instructions, but we still update the callCode for size
-        this.state.limit = 10;
+        this.state.limit = limit;
         this.state.currentCall = callCode;
 
-        if (this.state.selected.length > 10) {
-            this.state.selected = this.state.selected.slice(0, 10);
+        if (this.state.selected.length > limit) {
+            this.state.selected = this.state.selected.slice(0, limit);
         }
 
         this.updateUI();
@@ -130,6 +129,9 @@ const vegApp = {
     updateUI() {
         const countTexts = document.querySelectorAll('#veg-count');
         countTexts.forEach(el => el.innerText = this.state.selected.length);
+
+        const maxTexts = document.querySelectorAll('#veg-max');
+        maxTexts.forEach(el => el.innerText = this.state.limit);
 
         // Update Grid Items
         this.ingredients.forEach(ing => {
