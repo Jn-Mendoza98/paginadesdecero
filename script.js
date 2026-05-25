@@ -17,6 +17,146 @@ tailwind.config = {
 }
 
 // Dynamic Menu Filtering
+
+// --- Vegetariana App Logic ---
+const vegApp = {
+    state: {
+        isOpen: false,
+        limit: 4,
+        selected: [],
+        currentCall: "cartApp.addItem('Vegetariana (Personal)', 18.00, 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80')"
+    },
+
+    // Using the same ingredients as calzoneApp
+    ingredients: [
+        { id: 'v-aceitunas-n', name: 'Aceitunas Negras', emoji: '🫒' },
+        { id: 'v-aceitunas-v', name: 'Aceitunas Verdes', emoji: '🍈' },
+        { id: 'v-aji', name: 'Ají', emoji: '🌶️' },
+        { id: 'v-albahaca', name: 'Albahaca', emoji: '🌿' },
+        { id: 'v-cabanossi', name: 'Cabanossi', emoji: '🌭' },
+        { id: 'v-cebolla', name: 'Cebolla', emoji: '🧅' },
+        { id: 'v-cecina', name: 'Cecina', emoji: '🥩' },
+        { id: 'v-champinones', name: 'Champiñones', emoji: '🍄' },
+        { id: 'v-chorizo', name: 'Chorizo', emoji: '🌭' },
+        { id: 'v-durazno', name: 'Durazno', emoji: '🍑' },
+        { id: 'v-esparrago', name: 'Espárrago', emoji: '🥬' },
+        { id: 'v-jamon', name: 'Jamón', emoji: '🍖' },
+        { id: 'v-papaya', name: 'Papaya', emoji: '🥭' },
+        { id: 'v-pepperoni', name: 'Pepperoni', emoji: '🍕' },
+        { id: 'v-pimiento', name: 'Pimiento', emoji: '🫑' },
+        { id: 'v-pina', name: 'Piña', emoji: '🍍' },
+        { id: 'v-platano', name: 'Plátano', emoji: '🍌' },
+        { id: 'v-pollo', name: 'Pollo', emoji: '🍗' },
+        { id: 'v-salame', name: 'Salame', emoji: '🍖' },
+        { id: 'v-salchicha', name: 'Salchicha', emoji: '🌭' },
+        { id: 'v-tocino', name: 'Tocino', emoji: '🥓' },
+        { id: 'v-tomate', name: 'Tomate en rodajas', emoji: '🍅' }
+    ],
+
+    init() {
+        const grid = document.getElementById('veg-ingredients-grid');
+        if (!grid) return;
+
+        grid.innerHTML = this.ingredients.map(ing => `
+            <button onclick="vegApp.toggleIngredient('${ing.id}')" id="veg-ing-${ing.id}" class="bg-white border border-gray-200 rounded-md p-1.5 flex flex-col items-center justify-center gap-1 hover:border-primary transition relative h-16 w-full">
+                <div id="veg-check-${ing.id}" class="hidden absolute top-0.5 right-0.5 text-primary text-[10px]"><i class="fas fa-check-circle"></i></div>
+                <div class="text-xl leading-none">${ing.emoji}</div>
+                <span class="text-[8px] text-center leading-tight mt-0.5 text-gray-600 line-clamp-2">${ing.name}</span>
+            </button>
+        `).join('');
+    },
+
+    togglePanel() {
+        this.state.isOpen = !this.state.isOpen;
+        const panel = document.getElementById('veg-panel');
+        if (panel) {
+            panel.classList.toggle('hidden', !this.state.isOpen);
+        }
+    },
+
+    updateLimit(limit, callCode) {
+        this.state.limit = limit;
+        this.state.currentCall = callCode;
+
+        // If they switch size and have more selected than allowed, trim the array
+        if (this.state.selected.length > limit) {
+            this.state.selected = this.state.selected.slice(0, limit);
+        }
+
+        this.updateUI();
+    },
+
+    toggleIngredient(id) {
+        const idx = this.state.selected.indexOf(id);
+        if (idx > -1) {
+            this.state.selected.splice(idx, 1);
+        } else {
+            if (this.state.selected.length < this.state.limit) {
+                this.state.selected.push(id);
+            } else {
+                // Optionally show a toast/alert that limit is reached
+                alert(`Solo puedes escoger hasta ${this.state.limit} ingredientes en este tamaño.`);
+            }
+        }
+        this.updateUI();
+    },
+
+    updateUI() {
+        const limitText = document.getElementById('veg-limit-text');
+        const countText = document.getElementById('veg-count');
+
+        if (limitText) limitText.innerText = `Elige hasta ${this.state.limit} ingredientes`;
+        if (countText) countText.innerText = this.state.selected.length;
+
+        this.ingredients.forEach(ing => {
+            const btn = document.getElementById(`veg-ing-${ing.id}`);
+            const check = document.getElementById(`veg-check-${ing.id}`);
+            if(!btn || !check) return;
+
+            if (this.state.selected.includes(ing.id)) {
+                btn.classList.add('border-primary', 'bg-red-50');
+                btn.classList.remove('border-gray-200', 'bg-white');
+                check.classList.remove('hidden');
+            } else {
+                btn.classList.remove('border-primary', 'bg-red-50');
+                btn.classList.add('border-gray-200', 'bg-white');
+                check.classList.add('hidden');
+            }
+        });
+    },
+
+    addToCart() {
+        // We need to execute the currentCall but override the description.
+        // currentCall is something like: cartApp.addItem('Vegetariana (Personal)', 18.00, 'https://...')
+
+        // Parse it
+        const match = this.state.currentCall.match(/cartApp\.addItem\('([^']+)',\s*([\d.]+),\s*'([^']+)'\)/);
+        if (!match) return;
+
+        const name = match[1];
+        const price = match[2];
+        const img = match[3];
+
+        let desc = 'Ingredientes predeterminados';
+        if (this.state.selected.length > 0) {
+            const names = this.state.selected.map(id => this.ingredients.find(i => i.id === id).name);
+            desc = "Ingredientes elegidos: " + names.join(', ');
+        }
+
+        // Use cartApp to add
+        cartApp.addItem(name, price, img, desc);
+
+        // Close panel and reset optional
+        this.state.isOpen = false;
+        const panel = document.getElementById('veg-panel');
+        if (panel) panel.classList.add('hidden');
+
+        this.state.selected = [];
+        this.updateUI();
+    }
+};
+
+// Make sure to initialize vegApp
 document.addEventListener('DOMContentLoaded', () => {
     const isMenuPage = window.location.pathname.includes('menu.html');
     const menuSections = document.querySelectorAll('.menu-section');
@@ -479,5 +619,6 @@ const calzoneApp = {
 document.addEventListener('DOMContentLoaded', () => {
     cartApp.init();
     calzoneApp.init();
+    vegApp.init();
     bindGridAddButtons();
 });
