@@ -1860,6 +1860,160 @@ function addPastaWithSauce(baseName, price, selectId, btn) {
 }
 </script>
 
+
+<!-- Refrescos Section -->
+<section class="py-12 bg-white border-t border-gray-100 menu-section hidden" data-category="refrescos" id="refrescos-menu">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-8">
+<div class="flex items-center justify-center gap-4 mb-2">
+<i class="fas fa-glass-water text-orange-500 text-xl"></i>
+<h2 class="text-2xl font-bold uppercase text-dark">Refrescos</h2>
+<i class="fas fa-glass-water text-orange-500 text-xl"></i>
+</div>
+<p class="text-gray-600">Bebidas refrescantes para acompañar tu comida</p>
+</div>
+<!-- Menu Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Item 1 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Limonada" class="w-full h-full object-cover" src="IM/LIMONADA.png" onerror="this.src='https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=400&q=80'"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-1" title="Limonada">Limonada</h4>
+<div class="grid grid-cols-2 gap-1 mb-2">
+<select id="size-refresco-0" onchange="updateRefrescoPrice(0)" class="w-full text-[10px] sm:text-xs p-1 border border-gray-200 rounded bg-gray-50 text-gray-700 focus:outline-none focus:border-orange-500">
+<option value="1 Jarra" data-price="18.00">1 Jarra</option>
+<option value="1/2 Jarra" data-price="10.00">1/2 Jarra</option>
+</select>
+<select id="temp-refresco-0" class="w-full text-[10px] sm:text-xs p-1 border border-gray-200 rounded bg-gray-50 text-gray-700 focus:outline-none focus:border-orange-500">
+<option value="Helada">Helada</option>
+<option value="Sin Helar">Sin Helar</option>
+</select>
+</div>
+<div class="flex justify-between items-end mt-auto">
+<span id="price-refresco-0" class="text-primary font-bold text-sm sm:text-base">S/ 18.00</span>
+<button onclick="addRefresco('Limonada', 0, 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=400&q=80', this)" class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-xs sm:text-sm"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Chicha Morada" class="w-full h-full object-cover" src="IM/CHICHA_MORADA.png" onerror="this.src='https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=400&q=80'"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-1" title="Chicha Morada">Chicha Morada</h4>
+<div class="grid grid-cols-2 gap-1 mb-2">
+<select id="size-refresco-1" onchange="updateRefrescoPrice(1)" class="w-full text-[10px] sm:text-xs p-1 border border-gray-200 rounded bg-gray-50 text-gray-700 focus:outline-none focus:border-orange-500">
+<option value="1 Jarra" data-price="18.00">1 Jarra</option>
+<option value="1/2 Jarra" data-price="10.00">1/2 Jarra</option>
+</select>
+<select id="temp-refresco-1" class="w-full text-[10px] sm:text-xs p-1 border border-gray-200 rounded bg-gray-50 text-gray-700 focus:outline-none focus:border-orange-500">
+<option value="Helada">Helada</option>
+<option value="Sin Helar">Sin Helar</option>
+</select>
+</div>
+<div class="flex justify-between items-end mt-auto">
+<span id="price-refresco-1" class="text-primary font-bold text-sm sm:text-base">S/ 18.00</span>
+<button onclick="addRefresco('Chicha Morada', 1, 'https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=400&q=80', this)" class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-xs sm:text-sm"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Maracuyá" class="w-full h-full object-cover" src="IM/MARACUYÁ.png" onerror="this.src='https://images.unsplash.com/photo-1546171753-97d7676e4602?auto=format&fit=crop&w=400&q=80'"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-1" title="Maracuyá">Maracuyá</h4>
+<div class="grid grid-cols-2 gap-1 mb-2">
+<select id="size-refresco-2" onchange="updateRefrescoPrice(2)" class="w-full text-[10px] sm:text-xs p-1 border border-gray-200 rounded bg-gray-50 text-gray-700 focus:outline-none focus:border-orange-500">
+<option value="1 Jarra" data-price="18.00">1 Jarra</option>
+<option value="1/2 Jarra" data-price="10.00">1/2 Jarra</option>
+</select>
+<select id="temp-refresco-2" class="w-full text-[10px] sm:text-xs p-1 border border-gray-200 rounded bg-gray-50 text-gray-700 focus:outline-none focus:border-orange-500">
+<option value="Helada">Helada</option>
+<option value="Sin Helar">Sin Helar</option>
+</select>
+</div>
+<div class="flex justify-between items-end mt-auto">
+<span id="price-refresco-2" class="text-primary font-bold text-sm sm:text-base">S/ 18.00</span>
+<button onclick="addRefresco('Maracuyá', 2, 'https://images.unsplash.com/photo-1546171753-97d7676e4602?auto=format&fit=crop&w=400&q=80', this)" class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-xs sm:text-sm"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Naranja" class="w-full h-full object-cover" src="IM/NARANJA.png" onerror="this.src='https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=400&q=80'"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-1" title="Naranja">Naranja</h4>
+<div class="grid grid-cols-2 gap-1 mb-2">
+<select id="size-refresco-3" onchange="updateRefrescoPrice(3)" class="w-full text-[10px] sm:text-xs p-1 border border-gray-200 rounded bg-gray-50 text-gray-700 focus:outline-none focus:border-orange-500">
+<option value="1 Jarra" data-price="18.00">1 Jarra</option>
+<option value="1/2 Jarra" data-price="10.00">1/2 Jarra</option>
+</select>
+<select id="temp-refresco-3" class="w-full text-[10px] sm:text-xs p-1 border border-gray-200 rounded bg-gray-50 text-gray-700 focus:outline-none focus:border-orange-500">
+<option value="Helada">Helada</option>
+<option value="Sin Helar">Sin Helar</option>
+</select>
+</div>
+<div class="flex justify-between items-end mt-auto">
+<span id="price-refresco-3" class="text-primary font-bold text-sm sm:text-base">S/ 18.00</span>
+<button onclick="addRefresco('Naranja', 3, 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=400&q=80', this)" class="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-xs sm:text-sm"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 5: Limonada Frozen -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative opacity-95">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0 relative">
+<img alt="Limonada Frozen" class="w-full h-full object-cover" src="IM/LIMONADA_FROZEN.png" onerror="this.src='https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=400&q=80'"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center p-1">
+<span class="text-white font-bold text-[9px] text-center border border-white rounded px-1 w-full">Local Físico</span>
+</div>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-1" title="Limonada Frozen">Limonada Frozen</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mt-1 italic flex-grow flex items-center line-clamp-3">
+Solo disponible para consumo en nuestro local físico.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<script>
+function updateRefrescoPrice(id) {
+    var sizeSelect = document.getElementById('size-refresco-' + id);
+    var selectedOption = sizeSelect.options[sizeSelect.selectedIndex];
+    var price = selectedOption.getAttribute('data-price');
+    document.getElementById('price-refresco-' + id).innerText = 'S/ ' + price;
+}
+
+function addRefresco(name, id, img, btn) {
+    var sizeSelect = document.getElementById('size-refresco-' + id);
+    var tempSelect = document.getElementById('temp-refresco-' + id);
+
+    var size = sizeSelect.value;
+    var price = parseFloat(sizeSelect.options[sizeSelect.selectedIndex].getAttribute('data-price'));
+    var temp = tempSelect.value;
+
+    var finalName = name + ' (' + size + ' - ' + temp + ')';
+    cartApp.addItem(finalName, price, img, 'Refresco', btn);
+}
+</script>
+
 </main><footer class="bg-darker text-white pt-12 pb-6 border-t border-gray-800">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
