@@ -2205,6 +2205,129 @@ function addRefresco(name, id, img, btn) {
     </div>
 </section>
 
+<!-- Bebidas Section -->
+<section id="bebidas-menu" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 menu-section hidden" data-category="bebidas">
+    <!-- Hero Banner -->
+    <div class="relative bg-darker rounded-[32px] overflow-hidden mb-12 shadow-2xl">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-10"></div>
+            <img alt="Bebidas Hero" class="w-full h-full object-cover opacity-60" src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=1200&q=80" />
+        </div>
+        <div class="relative z-20 px-8 py-16 sm:py-20 lg:px-16 flex flex-col justify-center min-h-[300px]">
+            <span class="text-primary font-bold tracking-wider uppercase text-sm mb-4 flex items-center gap-2">
+                <i class="fas fa-glass-cheers"></i> Bebidas Refrescantes
+            </span>
+            <h2 class="text-4xl sm:text-5xl lg:text-6xl font-serif italic text-white font-bold mb-6">🥤 BEBIDAS</h2>
+            <p class="text-gray-300 max-w-2xl text-lg leading-relaxed">Las mejores bebidas para acompañar tu comida.</p>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 relative items-start">
+
+        <!-- Interactive Selectors Column -->
+        <div class="lg:col-span-8 space-y-6">
+
+            <!-- Step 1: Marca -->
+            <div class="bg-white rounded-[24px] p-6 sm:p-8 shadow-sm border border-gray-100 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-primary"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-primary/10 text-primary w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">1</div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Elige tu Marca</h3>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <button id="bebidas-marca-Inca-Kola" onclick="bebidasApp.selectMarca('Inca Kola')" class="relative p-4 rounded-xl border-2 border-primary bg-primary/5 text-left transition-all duration-300 hover:border-primary/50 group">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-gray-900 group-hover:text-primary transition-colors">Inca Kola</span>
+                        </div>
+                    </button>
+                    <button id="bebidas-marca-Coca-Cola" onclick="bebidasApp.selectMarca('Coca-Cola')" class="relative p-4 rounded-xl border-2 border-gray-200 text-left transition-all duration-300 hover:border-primary/50 group">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-gray-900 group-hover:text-primary transition-colors">Coca-Cola</span>
+                        </div>
+                    </button>
+                    <button id="bebidas-marca-Fanta" onclick="bebidasApp.selectMarca('Fanta')" class="relative p-4 rounded-xl border-2 border-gray-200 text-left transition-all duration-300 hover:border-primary/50 group">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-gray-900 group-hover:text-primary transition-colors">Fanta</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 2: Tamaño -->
+            <div class="bg-white rounded-[24px] p-6 sm:p-8 shadow-sm border border-gray-100 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-primary"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-primary/10 text-primary w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">2</div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Elige el Tamaño</h3>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <button id="bebidas-tamano-1-1-2-Litros" onclick="bebidasApp.selectTamano('1 1/2 Litros')" class="relative p-4 rounded-xl border-2 border-primary bg-primary/5 text-left transition-all duration-300 hover:border-primary/50 group">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-gray-900 group-hover:text-primary transition-colors">1 1/2 Litros</span>
+                            <span class="text-primary font-bold">+ S/ 12.00</span>
+                        </div>
+                    </button>
+                    <button id="bebidas-tamano-1-2-Litro" onclick="bebidasApp.selectTamano('1/2 Litro')" class="relative p-4 rounded-xl border-2 border-gray-200 text-left transition-all duration-300 hover:border-primary/50 group">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-gray-900 group-hover:text-primary transition-colors">1/2 Litro</span>
+                            <span class="text-primary font-bold">+ S/ 5.00</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Step 3: Temperatura -->
+            <div class="bg-white rounded-[24px] p-6 sm:p-8 shadow-sm border border-gray-100 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-2 h-full bg-primary"></div>
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="bg-primary/10 text-primary w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg">3</div>
+                    <h3 class="text-xl sm:text-2xl font-bold text-gray-900">Temperatura</h3>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <button id="bebidas-temp-Helada" onclick="bebidasApp.selectTemperatura('Helada')" class="relative p-4 rounded-xl border-2 border-primary bg-primary/5 text-left transition-all duration-300 hover:border-primary/50 group">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-gray-900 group-hover:text-primary transition-colors">Helada ❄️</span>
+                        </div>
+                    </button>
+                    <button id="bebidas-temp-Sin-helar" onclick="bebidasApp.selectTemperatura('Sin helar')" class="relative p-4 rounded-xl border-2 border-gray-200 text-left transition-all duration-300 hover:border-primary/50 group">
+                        <div class="flex items-center justify-between">
+                            <span class="font-bold text-gray-900 group-hover:text-primary transition-colors">Sin helar 🌡️</span>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary UI Column -->
+        <div class="lg:col-span-4 lg:sticky lg:top-24">
+            <div class="bg-white rounded-[24px] shadow-lg border border-gray-100 overflow-hidden flex flex-col h-full">
+                <div class="h-48 overflow-hidden bg-gray-50 relative">
+                    <img id="bebidas-preview-img" alt="Bebida Seleccionada" class="w-full h-full object-cover transition-transform duration-700 hover:scale-110" src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <h4 id="bebidas-title" class="font-bold text-white text-xl line-clamp-2">Inca Kola (1 1/2 Litros)</h4>
+                    </div>
+                </div>
+
+                <div class="p-6 flex flex-col flex-grow bg-white">
+                    <div class="flex justify-between items-center mb-6 pb-6 border-b border-gray-100">
+                        <span class="text-gray-500 font-medium">Precio Total</span>
+                        <span id="bebidas-price" class="text-3xl font-bold text-primary">S/ 12.00</span>
+                    </div>
+
+                    <button id="add-bebida-btn" onclick="bebidasApp.addToCart()" class="w-full bg-gradient-to-r from-primary to-red-700 hover:from-red-600 hover:to-red-800 text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-red-500/40 hover:-translate-y-1 flex items-center justify-center gap-2 mt-auto">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Agregar al carrito</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
 </main><footer class="bg-darker text-white pt-12 pb-6 border-t border-gray-800">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
