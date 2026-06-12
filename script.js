@@ -240,20 +240,30 @@ const cartApp = {
 
     loadCart() {
         try {
-            const savedItems = localStorage.getItem('chezMaggyCart');
-            if (savedItems) {
-                this.state.items = JSON.parse(savedItems);
+            // Check if page was reloaded manually
+            const isReload = (window.performance && window.performance.navigation && window.performance.navigation.type === 1) ||
+                             (window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType("navigation").length > 0 && window.performance.getEntriesByType("navigation")[0].type === "reload");
+
+            if (isReload) {
+                // Clear cart on manual reload
+                sessionStorage.removeItem('chezMaggyCart');
+                this.state.items = [];
+            } else {
+                const savedItems = sessionStorage.getItem('chezMaggyCart');
+                if (savedItems) {
+                    this.state.items = JSON.parse(savedItems);
+                }
             }
         } catch (e) {
-            console.error('Error loading cart from localStorage', e);
+            console.error('Error loading cart from sessionStorage', e);
         }
     },
 
     saveCart() {
         try {
-            localStorage.setItem('chezMaggyCart', JSON.stringify(this.state.items));
+            sessionStorage.setItem('chezMaggyCart', JSON.stringify(this.state.items));
         } catch (e) {
-            console.error('Error saving cart to localStorage', e);
+            console.error('Error saving cart to sessionStorage', e);
         }
     },
 
