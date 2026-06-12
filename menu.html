@@ -2223,15 +2223,15 @@ function addRefresco(name, id, img, btn) {
         <!-- Step 1: Marca -->
         <div class="bg-white rounded-[24px] p-6 sm:p-8 shadow-sm border border-gray-100">
             <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">1. Elige tu Marca</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <button id="bebidas-marca-Inca-Kola" onclick="bebidasApp.selectMarca('Inca Kola')" class="p-4 rounded-xl border-2 border-primary bg-primary/5 text-center transition-all duration-300">
-                    <span class="font-bold text-gray-900">Inca Kola</span>
+            <div class="grid grid-cols-3 gap-2 sm:gap-4">
+                <button id="bebidas-marca-Inca-Kola" onclick="bebidasApp.selectMarca('Inca Kola')" class="p-3 sm:p-4 rounded-xl border-2 border-primary bg-primary/5 text-center transition-all duration-300">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">Inca Kola</span>
                 </button>
-                <button id="bebidas-marca-Coca-Cola" onclick="bebidasApp.selectMarca('Coca-Cola')" class="p-4 rounded-xl border-2 border-gray-200 text-center transition-all duration-300">
-                    <span class="font-bold text-gray-900">Coca-Cola</span>
+                <button id="bebidas-marca-Coca-Cola" onclick="bebidasApp.selectMarca('Coca-Cola')" class="p-3 sm:p-4 rounded-xl border-2 border-gray-200 text-center transition-all duration-300">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">Coca-Cola</span>
                 </button>
-                <button id="bebidas-marca-Fanta" onclick="bebidasApp.selectMarca('Fanta')" class="p-4 rounded-xl border-2 border-gray-200 text-center transition-all duration-300">
-                    <span class="font-bold text-gray-900">Fanta</span>
+                <button id="bebidas-marca-Fanta" onclick="bebidasApp.selectMarca('Fanta')" class="p-3 sm:p-4 rounded-xl border-2 border-gray-200 text-center transition-all duration-300">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">Fanta</span>
                 </button>
             </div>
         </div>
@@ -2239,14 +2239,14 @@ function addRefresco(name, id, img, btn) {
         <!-- Step 2: Tamaño -->
         <div class="bg-white rounded-[24px] p-6 sm:p-8 shadow-sm border border-gray-100">
             <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">2. Elige el Tamaño</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <button id="bebidas-tamano-1-1-2-Litros" onclick="bebidasApp.selectTamano('1 1/2 Litros')" class="p-4 rounded-xl border-2 border-primary bg-primary/5 flex justify-between items-center transition-all duration-300">
-                    <span class="font-bold text-gray-900">1 1/2 Litros</span>
-                    <span class="text-primary font-bold">+ S/ 12.00</span>
+            <div class="grid grid-cols-2 gap-2 sm:gap-4">
+                <button id="bebidas-tamano-1-1-2-Litros" onclick="bebidasApp.selectTamano('1 1/2 Litros')" class="p-3 sm:p-4 rounded-xl border-2 border-primary bg-primary/5 flex flex-col sm:flex-row justify-center sm:justify-between items-center transition-all duration-300 gap-1 sm:gap-0">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">1 1/2 Litros</span>
+                    <span class="text-primary font-bold text-sm sm:text-base">+ S/ 12.00</span>
                 </button>
-                <button id="bebidas-tamano-1-2-Litro" onclick="bebidasApp.selectTamano('1/2 Litro')" class="p-4 rounded-xl border-2 border-gray-200 flex justify-between items-center transition-all duration-300">
-                    <span class="font-bold text-gray-900">1/2 Litro</span>
-                    <span class="text-primary font-bold">+ S/ 5.00</span>
+                <button id="bebidas-tamano-1-2-Litro" onclick="bebidasApp.selectTamano('1/2 Litro')" class="p-3 sm:p-4 rounded-xl border-2 border-gray-200 flex flex-col sm:flex-row justify-center sm:justify-between items-center transition-all duration-300 gap-1 sm:gap-0">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">1/2 Litro</span>
+                    <span class="text-primary font-bold text-sm sm:text-base">+ S/ 5.00</span>
                 </button>
             </div>
         </div>
@@ -2254,12 +2254,12 @@ function addRefresco(name, id, img, btn) {
         <!-- Step 3: Temperatura -->
         <div class="bg-white rounded-[24px] p-6 sm:p-8 shadow-sm border border-gray-100">
             <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">3. Temperatura</h3>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <button id="bebidas-temp-Helada" onclick="bebidasApp.selectTemperatura('Helada')" class="p-4 rounded-xl border-2 border-primary bg-primary/5 text-center transition-all duration-300">
-                    <span class="font-bold text-gray-900">Helada ❄️</span>
+            <div class="grid grid-cols-2 gap-2 sm:gap-4">
+                <button id="bebidas-temp-Helada" onclick="bebidasApp.selectTemperatura('Helada')" class="p-3 sm:p-4 rounded-xl border-2 border-primary bg-primary/5 text-center transition-all duration-300">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">Helada ❄️</span>
                 </button>
-                <button id="bebidas-temp-Sin-helar" onclick="bebidasApp.selectTemperatura('Sin helar')" class="p-4 rounded-xl border-2 border-gray-200 text-center transition-all duration-300">
-                    <span class="font-bold text-gray-900">Sin helar 🌡️</span>
+                <button id="bebidas-temp-Sin-helar" onclick="bebidasApp.selectTemperatura('Sin helar')" class="p-3 sm:p-4 rounded-xl border-2 border-gray-200 text-center transition-all duration-300">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">Sin helar 🌡️</span>
                 </button>
             </div>
         </div>
