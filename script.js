@@ -242,19 +242,9 @@ const cartApp = {
 
     loadCart() {
         try {
-            // Check if page was reloaded
-            const isReload = (window.performance && window.performance.navigation && window.performance.navigation.type === 1) ||
-                             (window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType("navigation").length > 0 && window.performance.getEntriesByType("navigation")[0].type === "reload");
-
-            if (isReload) {
-                // Clear cart on reload
-                localStorage.removeItem('chezMaggyCart');
-                this.state.items = [];
-            } else {
-                const savedItems = localStorage.getItem('chezMaggyCart');
-                if (savedItems) {
-                    this.state.items = JSON.parse(savedItems);
-                }
+            const savedItems = localStorage.getItem('chezMaggyCart');
+            if (savedItems) {
+                this.state.items = JSON.parse(savedItems);
             }
         } catch (e) {
             console.error('Error loading cart from localStorage', e);
