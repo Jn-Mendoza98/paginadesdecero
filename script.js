@@ -199,11 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const category = link.getAttribute('data-category');
 
             if (isMenuPage) {
-                // If it's a link to #category or menu.html#category
                 e.preventDefault();
-                // Update URL hash without reloading
-                window.history.pushState(null, null, `#${category}`);
-                filterCategory(category);
+                // Change hash to naturally trigger hashchange event without reloading
+                window.location.hash = category;
             }
             // If on index.html, let the default behavior navigate to menu.html#category
         });
@@ -242,19 +240,9 @@ const cartApp = {
 
     loadCart() {
         try {
-            // Check if page was reloaded
-            const isReload = (window.performance && window.performance.navigation && window.performance.navigation.type === 1) ||
-                             (window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType("navigation").length > 0 && window.performance.getEntriesByType("navigation")[0].type === "reload");
-
-            if (isReload) {
-                // Clear cart on reload
-                localStorage.removeItem('chezMaggyCart');
-                this.state.items = [];
-            } else {
-                const savedItems = localStorage.getItem('chezMaggyCart');
-                if (savedItems) {
-                    this.state.items = JSON.parse(savedItems);
-                }
+            const savedItems = localStorage.getItem('chezMaggyCart');
+            if (savedItems) {
+                this.state.items = JSON.parse(savedItems);
             }
         } catch (e) {
             console.error('Error loading cart from localStorage', e);
@@ -628,5 +616,104 @@ document.addEventListener('DOMContentLoaded', () => {
     cartApp.init();
     calzoneApp.init();
     vegApp.init();
+    bebidasApp.init();
     bindGridAddButtons();
 });
+
+const bebidasApp = {
+    state: {
+        marca: 'Inca Kola', // Inca Kola, Coca-Cola, Fanta
+        tamano: '1 1/2 Litros', // 1 1/2 Litros, 1/2 Litro
+        temperatura: 'Helada', // Helada, Sin helar
+        qty: 1
+    },
+
+    prices: {
+        '1 1/2 Litros': 12.00,
+        '1/2 Litro': 5.00
+    },
+
+    images: {
+        'Inca Kola': 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80',
+        'Coca-Cola': 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80',
+        'Fanta': 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80'
+    },
+
+    init() {
+        this.updateUI();
+    },
+
+    selectMarca(marca) {
+        this.state.marca = marca;
+        this.updateUI();
+    },
+
+    selectTamano(tamano) {
+        this.state.tamano = tamano;
+        this.updateUI();
+    },
+
+    selectTemperatura(temperatura) {
+        this.state.temperatura = temperatura;
+        this.updateUI();
+    },
+
+    updateUI() {
+        const pPrice = document.getElementById('bebidas-price');
+        const pTitle = document.getElementById('bebidas-title');
+
+        if (pPrice && pTitle) {
+            pPrice.innerText = 'S/ ' + this.prices[this.state.tamano].toFixed(2);
+            pTitle.innerText = `${this.state.marca} (${this.state.tamano}) - ${this.state.temperatura}`;
+        }
+
+        // Update selected states of buttons
+        ['Inca Kola', 'Coca-Cola', 'Fanta'].forEach(m => {
+            const btn = document.getElementById(`bebidas-marca-${m.replace(/ /g, '-')}`);
+            if (btn) {
+                if (m === this.state.marca) {
+                    btn.classList.add('border-primary', 'bg-primary/5');
+                    btn.classList.remove('border-gray-200');
+                } else {
+                    btn.classList.remove('border-primary', 'bg-primary/5');
+                    btn.classList.add('border-gray-200');
+                }
+            }
+        });
+
+        ['1 1/2 Litros', '1/2 Litro'].forEach(t => {
+            const btn = document.getElementById(`bebidas-tamano-${t.replace(/[\/ ]/g, '-')}`);
+            if (btn) {
+                if (t === this.state.tamano) {
+                    btn.classList.add('border-primary', 'bg-primary/5');
+                    btn.classList.remove('border-gray-200');
+                } else {
+                    btn.classList.remove('border-primary', 'bg-primary/5');
+                    btn.classList.add('border-gray-200');
+                }
+            }
+        });
+
+        ['Helada', 'Sin helar'].forEach(temp => {
+            const btn = document.getElementById(`bebidas-temp-${temp.replace(/ /g, '-')}`);
+            if (btn) {
+                if (temp === this.state.temperatura) {
+                    btn.classList.add('border-primary', 'bg-primary/5');
+                    btn.classList.remove('border-gray-200');
+                } else {
+                    btn.classList.remove('border-primary', 'bg-primary/5');
+                    btn.classList.add('border-gray-200');
+                }
+            }
+        });
+    },
+
+    addToCart() {
+        const name = `${this.state.marca} ${this.state.tamano}`;
+        const price = this.prices[this.state.tamano];
+        const img = this.images[this.state.marca] || 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80';
+        const desc = `Temp: ${this.state.temperatura}`;
+
+        cartApp.addItem(name, price, img, desc, document.getElementById('add-bebida-btn'));
+    }
+};

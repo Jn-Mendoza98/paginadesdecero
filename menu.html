@@ -1395,15 +1395,15 @@
                     <div class="flex border border-red-200 rounded-lg overflow-hidden bg-white shadow-sm text-center text-xs sm:text-sm">
                         <button onclick="calzoneApp.selectType('tradicional')" id="calzone-tab-tradicional" class="flex-1 py-3 sm:py-4 px-2 border-r border-red-100 transition-colors duration-200 bg-white text-gray-600 hover:bg-red-50">
                             <div class="font-bold mb-1">Tradicional</div>
-                            <div class="text-[9px] sm:text-[10px] opacity-80">Clásico y delicioso</div>
+                            <div class="text-[10px] sm:text-xs opacity-80">Clásico y delicioso</div>
                         </button>
                         <button onclick="calzoneApp.selectType('vegetariano')" id="calzone-tab-vegetariano" class="flex-1 py-3 sm:py-4 px-2 border-r border-red-100 transition-colors duration-200 bg-primary text-white">
                             <div class="font-bold mb-1">Vegetariano</div>
-                            <div class="text-[9px] sm:text-[10px] opacity-90">Con vegetales frescos</div>
+                            <div class="text-[10px] sm:text-xs opacity-90">Con vegetales frescos</div>
                         </button>
                         <button onclick="calzoneApp.selectType('amigusto')" id="calzone-tab-amigusto" class="flex-1 py-3 sm:py-4 px-2 transition-colors duration-200 bg-white text-gray-600 hover:bg-red-50">
                             <div class="font-bold mb-1">A Mi Gusto</div>
-                            <div class="text-[9px] sm:text-[10px] opacity-80">Tú eliges los ingredientes</div>
+                            <div class="text-[10px] sm:text-xs opacity-80">Tú eliges los ingredientes</div>
                         </button>
                     </div>
                 </div>
@@ -1566,6 +1566,715 @@
 </div>
 </div>
 </section>
+
+<!-- Pastas Section -->
+<section class="py-12 bg-white border-t border-gray-100 menu-section hidden" data-category="pastas" id="pastas-menu">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-8">
+<div class="flex items-center justify-center gap-4 mb-2">
+<i class="fas fa-utensils text-orange-500 text-xl"></i>
+<h2 class="text-2xl font-bold uppercase text-dark">Pastas</h2>
+<i class="fas fa-utensils text-orange-500 text-xl"></i>
+</div>
+<p class="text-gray-600">Disfruta de nuestras deliciosas pastas con la salsa de tu elección</p>
+</div>
+<!-- Menu Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Item 1 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Lasaña Tradicional" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Lasaña Tradicional">Lasaña Tradicional</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mb-2 line-clamp-2">Deliciosa pasta preparada con los mejores ingredientes de la casa.</p>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 26.00</span>
+<button onclick="cartApp.addItem('Lasaña Tradicional', 26.00, 'IM/pasta.png', 'Pasta', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Lasaña de Pollo" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Lasaña de Pollo">Lasaña de Pollo</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mb-2 line-clamp-2">Deliciosa pasta preparada con los mejores ingredientes de la casa.</p>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 24.00</span>
+<button onclick="cartApp.addItem('Lasaña de Pollo', 24.00, 'IM/pasta.png', 'Pasta', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Ravioles" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Ravioles">Ravioles</h4>
+<select id="sauce-2" class="w-full text-xs p-1 mb-1 border border-gray-200 rounded bg-gray-50 text-gray-700 focus:outline-none focus:border-orange-500">
+<option value="Tuco">Tuco</option>
+<option value="Pesto">Pesto</option>
+<option value="Ajo">Ajo</option>
+</select>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 24.00</span>
+<button onclick="addPastaWithSauce('Ravioles', 24.00, 'sauce-2', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Ravioles Mixtos" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Ravioles Mixtos">Ravioles Mixtos</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mb-2 line-clamp-2">Deliciosa pasta preparada con los mejores ingredientes de la casa.</p>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 25.00</span>
+<button onclick="cartApp.addItem('Ravioles Mixtos', 25.00, 'IM/pasta.png', 'Pasta', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Canelones Especiales" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Canelones Especiales">Canelones Especiales</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mb-2 line-clamp-2">Deliciosa pasta preparada con los mejores ingredientes de la casa.</p>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 20.00</span>
+<button onclick="cartApp.addItem('Canelones Especiales', 20.00, 'IM/pasta.png', 'Pasta', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 6 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Fetuccini Tuco, Pesto o Ajo" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Fetuccini Tuco, Pesto o Ajo">Fetuccini Tuco, Pesto o Ajo</h4>
+<select id="sauce-5" class="w-full text-xs p-1 mb-1 border border-gray-200 rounded bg-gray-50 text-gray-700 focus:outline-none focus:border-orange-500">
+<option value="Tuco">Tuco</option>
+<option value="Pesto">Pesto</option>
+<option value="Ajo">Ajo</option>
+</select>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 23.00</span>
+<button onclick="addPastaWithSauce('Fetuccini', 23.00, 'sauce-5', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 7 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Fetuccini Mixto" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Fetuccini Mixto">Fetuccini Mixto</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mb-2 line-clamp-2">Deliciosa pasta preparada con los mejores ingredientes de la casa.</p>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 24.00</span>
+<button onclick="cartApp.addItem('Fetuccini Mixto', 24.00, 'IM/pasta.png', 'Pasta', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 8 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Fetuccini a lo Alfredo" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Fetuccini a lo Alfredo">Fetuccini a lo Alfredo</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mb-2 line-clamp-2">Deliciosa pasta preparada con los mejores ingredientes de la casa.</p>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 27.00</span>
+<button onclick="cartApp.addItem('Fetuccini a lo Alfredo', 27.00, 'IM/pasta.png', 'Pasta', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 9 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Fetuccini a la Carbonara" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Fetuccini a la Carbonara">Fetuccini a la Carbonara</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mb-2 line-clamp-2">Deliciosa pasta preparada con los mejores ingredientes de la casa.</p>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 25.00</span>
+<button onclick="cartApp.addItem('Fetuccini a la Carbonara', 25.00, 'IM/pasta.png', 'Pasta', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 10 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Fetuccini al Pesto + Lomo Fino" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Fetuccini al Pesto + Lomo Fino">Fetuccini al Pesto + Lomo Fino</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mb-2 line-clamp-2">Deliciosa pasta preparada con los mejores ingredientes de la casa.</p>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 38.00</span>
+<button onclick="cartApp.addItem('Fetuccini al Pesto + Lomo Fino', 38.00, 'IM/pasta.png', 'Pasta', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 11 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Fetuccini al Pesto + Filete de Pollo" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Fetuccini al Pesto + Filete de Pollo">Fetuccini al Pesto + Filete de Pollo</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mb-2 line-clamp-2">Deliciosa pasta preparada con los mejores ingredientes de la casa.</p>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 35.00</span>
+<button onclick="cartApp.addItem('Fetuccini al Pesto + Filete de Pollo', 35.00, 'IM/pasta.png', 'Pasta', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 12 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Fetuccini al Pesto con Pollo a la Plancha en Salsa Blanca con Champiñones" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Fetuccini al Pesto con Pollo a la Plancha en Salsa Blanca con Champiñones">Fetuccini al Pesto con Pollo a la Plancha en Salsa Blanca con Champiñones</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mb-2 line-clamp-2">Deliciosa pasta preparada con los mejores ingredientes de la casa.</p>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 36.00</span>
+<button onclick="cartApp.addItem('Fetuccini al Pesto con Pollo a la Plancha en Salsa Blanca con Champiñones', 36.00, 'IM/pasta.png', 'Pasta', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 13 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Espaguetis Tuco, Pesto o Ajo" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Espaguetis Tuco, Pesto o Ajo">Espaguetis Tuco, Pesto o Ajo</h4>
+<select id="sauce-12" class="w-full text-xs p-1 mb-1 border border-gray-200 rounded bg-gray-50 text-gray-700 focus:outline-none focus:border-orange-500">
+<option value="Tuco">Tuco</option>
+<option value="Pesto">Pesto</option>
+<option value="Ajo">Ajo</option>
+</select>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 22.00</span>
+<button onclick="addPastaWithSauce('Espaguetis', 22.00, 'sauce-12', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 14 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Espaguetis Mixtos" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Espaguetis Mixtos">Espaguetis Mixtos</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mb-2 line-clamp-2">Deliciosa pasta preparada con los mejores ingredientes de la casa.</p>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 24.00</span>
+<button onclick="cartApp.addItem('Espaguetis Mixtos', 24.00, 'IM/pasta.png', 'Pasta', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 15 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Espaguetis al Pesto + Lomo Fino" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Espaguetis al Pesto + Lomo Fino">Espaguetis al Pesto + Lomo Fino</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mb-2 line-clamp-2">Deliciosa pasta preparada con los mejores ingredientes de la casa.</p>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 37.00</span>
+<button onclick="cartApp.addItem('Espaguetis al Pesto + Lomo Fino', 37.00, 'IM/pasta.png', 'Pasta', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 16 -->
+<div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-row h-36 hover:shadow-md transition relative">
+<div class="w-1/3 h-full overflow-hidden bg-gray-50 flex-shrink-0">
+<img alt="Espaguetis al Pesto con Filete de Pollo" class="w-full h-full object-cover" src="IM/pasta.png"/>
+</div>
+<div class="p-3 sm:p-4 flex flex-col justify-center w-2/3">
+<h4 class="font-bold text-dark text-sm sm:text-base mb-1 line-clamp-2" title="Espaguetis al Pesto con Filete de Pollo">Espaguetis al Pesto con Filete de Pollo</h4>
+<p class="text-gray-500 text-[10px] sm:text-xs mb-2 line-clamp-2">Deliciosa pasta preparada con los mejores ingredientes de la casa.</p>
+<div class="flex justify-between items-end mt-auto">
+<span class="text-primary font-bold text-sm sm:text-base">S/ 34.00</span>
+<button onclick="cartApp.addItem('Espaguetis al Pesto con Filete de Pollo', 34.00, 'IM/pasta.png', 'Pasta', this)" class="w-6 h-6 rounded-full bg-primary text-white flex items-center justify-center hover:bg-red-700 transition">
+<i class="fas fa-plus text-[10px]"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<script>
+function addPastaWithSauce(baseName, price, selectId, btn) {
+    var sauce = document.getElementById(selectId).value;
+    var finalName = baseName + ' (' + sauce + ')';
+    cartApp.addItem(finalName, price, 'IM/pasta.png', 'Pasta', btn);
+}
+</script>
+
+
+<!-- Refrescos Section -->
+<section class="bg-gray-50 border-t border-gray-100 menu-section hidden" data-category="refrescos" id="refrescos-menu">
+    <!-- Hero Banner -->
+    <div class="relative bg-darker text-white py-12 sm:py-16">
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="IM/LIMONADA.png" alt="Fondo Refrescos" class="w-full h-full object-cover opacity-20 filter blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/80 to-transparent"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold italic mb-3 tracking-wider text-white">🥤 REFRESCOS</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base font-light">Bebidas refrescantes para acompañar tu comida</p>
+            <div class="h-1 w-16 sm:w-24 bg-primary mx-auto mt-6 rounded-full opacity-80"></div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Menu Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+            <!-- Item 1 -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Limonada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="IM/LIMONADA.png" onerror="this.src='https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=400&q=80'"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                    <div class="absolute top-2 left-2 lg:top-3 lg:left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-md shadow-sm border border-gray-100 flex items-center gap-1.5 z-10">
+                        <span class="text-[10px] sm:text-xs font-bold text-gray-800 tracking-wide uppercase">⭐ Más pedida</span>
+                    </div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-1" title="Limonada">Limonada</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Nuestra limonada clásica, el balance perfecto de acidez y dulzor.</p>
+
+                    <div class="grid grid-cols-1 gap-2 mb-3 lg:mb-4">
+                        <select id="size-refresco-0" onchange="updateRefrescoPrice(0)" class="w-full text-xs sm:text-sm p-2 border border-gray-200 rounded-xl bg-gray-50 text-gray-700 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors cursor-pointer outline-none font-medium shadow-sm hover:border-gray-300">
+                            <option value="1 Jarra" data-price="18.00">1 Jarra</option>
+                            <option value="1/2 Jarra" data-price="10.00">1/2 Jarra</option>
+                        </select>
+                        <select id="temp-refresco-0" class="w-full text-xs sm:text-sm p-2 border border-gray-200 rounded-xl bg-gray-50 text-gray-700 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors cursor-pointer outline-none font-medium shadow-sm hover:border-gray-300">
+                            <option value="Helada">Helada</option>
+                            <option value="Sin Helar">Sin Helar</option>
+                        </select>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-auto pt-3 border-t border-gray-100/80">
+                        <span id="price-refresco-0" class="text-primary font-bold text-base lg:text-lg">S/ 18.00</span>
+                        <button onclick="addRefresco('Limonada', 0, 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=400&q=80', this)" class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-r from-primary to-red-700 text-white flex items-center justify-center hover:shadow-[0_4px_12px_rgba(230,33,23,0.3)] transition-all transform hover:-translate-y-0.5 group-hover:scale-105">
+                            <i class="fas fa-plus text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Chicha Morada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="IM/CHICHA_MORADA.png" onerror="this.src='https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=400&q=80'"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                    <div class="absolute top-2 left-2 lg:top-3 lg:left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-md shadow-sm border border-gray-100 flex items-center gap-1.5 z-10">
+                        <span class="text-[10px] sm:text-xs font-bold text-gray-800 tracking-wide uppercase">🌿 Natural</span>
+                    </div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-1" title="Chicha Morada">Chicha Morada</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Auténtica chicha morada casera, hervida con manzana y piña.</p>
+
+                    <div class="grid grid-cols-1 gap-2 mb-3 lg:mb-4">
+                        <select id="size-refresco-1" onchange="updateRefrescoPrice(1)" class="w-full text-xs sm:text-sm p-2 border border-gray-200 rounded-xl bg-gray-50 text-gray-700 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors cursor-pointer outline-none font-medium shadow-sm hover:border-gray-300">
+                            <option value="1 Jarra" data-price="18.00">1 Jarra</option>
+                            <option value="1/2 Jarra" data-price="10.00">1/2 Jarra</option>
+                        </select>
+                        <select id="temp-refresco-1" class="w-full text-xs sm:text-sm p-2 border border-gray-200 rounded-xl bg-gray-50 text-gray-700 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors cursor-pointer outline-none font-medium shadow-sm hover:border-gray-300">
+                            <option value="Helada">Helada</option>
+                            <option value="Sin Helar">Sin Helar</option>
+                        </select>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-auto pt-3 border-t border-gray-100/80">
+                        <span id="price-refresco-1" class="text-primary font-bold text-base lg:text-lg">S/ 18.00</span>
+                        <button onclick="addRefresco('Chicha Morada', 1, 'https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=400&q=80', this)" class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-r from-primary to-red-700 text-white flex items-center justify-center hover:shadow-[0_4px_12px_rgba(230,33,23,0.3)] transition-all transform hover:-translate-y-0.5 group-hover:scale-105">
+                            <i class="fas fa-plus text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Maracuyá" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="IM/MARACUYÁ.png" onerror="this.src='https://images.unsplash.com/photo-1546171753-97d7676e4602?auto=format&fit=crop&w=400&q=80'"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                    <div class="absolute top-2 left-2 lg:top-3 lg:left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-md shadow-sm border border-gray-100 flex items-center gap-1.5 z-10">
+                        <span class="text-[10px] sm:text-xs font-bold text-gray-800 tracking-wide uppercase">❄️ Bien helada</span>
+                    </div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-1" title="Maracuyá">Maracuyá</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Refrescante jugo de maracuyá recién exprimido.</p>
+
+                    <div class="grid grid-cols-1 gap-2 mb-3 lg:mb-4">
+                        <select id="size-refresco-2" onchange="updateRefrescoPrice(2)" class="w-full text-xs sm:text-sm p-2 border border-gray-200 rounded-xl bg-gray-50 text-gray-700 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors cursor-pointer outline-none font-medium shadow-sm hover:border-gray-300">
+                            <option value="1 Jarra" data-price="18.00">1 Jarra</option>
+                            <option value="1/2 Jarra" data-price="10.00">1/2 Jarra</option>
+                        </select>
+                        <select id="temp-refresco-2" class="w-full text-xs sm:text-sm p-2 border border-gray-200 rounded-xl bg-gray-50 text-gray-700 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors cursor-pointer outline-none font-medium shadow-sm hover:border-gray-300">
+                            <option value="Helada">Helada</option>
+                            <option value="Sin Helar">Sin Helar</option>
+                        </select>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-auto pt-3 border-t border-gray-100/80">
+                        <span id="price-refresco-2" class="text-primary font-bold text-base lg:text-lg">S/ 18.00</span>
+                        <button onclick="addRefresco('Maracuyá', 2, 'https://images.unsplash.com/photo-1546171753-97d7676e4602?auto=format&fit=crop&w=400&q=80', this)" class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-r from-primary to-red-700 text-white flex items-center justify-center hover:shadow-[0_4px_12px_rgba(230,33,23,0.3)] transition-all transform hover:-translate-y-0.5 group-hover:scale-105">
+                            <i class="fas fa-plus text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Naranja" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="IM/NARANJA.png" onerror="this.src='https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=400&q=80'"/>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                    <div class="absolute top-2 left-2 lg:top-3 lg:left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-md shadow-sm border border-gray-100 flex items-center gap-1.5 z-10">
+                        <span class="text-[10px] sm:text-xs font-bold text-gray-800 tracking-wide uppercase">🌿 Natural</span>
+                    </div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-1" title="Naranja">Naranja</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Jugo de naranjas frescas cuidadosamente seleccionadas.</p>
+
+                    <div class="grid grid-cols-1 gap-2 mb-3 lg:mb-4">
+                        <select id="size-refresco-3" onchange="updateRefrescoPrice(3)" class="w-full text-xs sm:text-sm p-2 border border-gray-200 rounded-xl bg-gray-50 text-gray-700 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors cursor-pointer outline-none font-medium shadow-sm hover:border-gray-300">
+                            <option value="1 Jarra" data-price="18.00">1 Jarra</option>
+                            <option value="1/2 Jarra" data-price="10.00">1/2 Jarra</option>
+                        </select>
+                        <select id="temp-refresco-3" class="w-full text-xs sm:text-sm p-2 border border-gray-200 rounded-xl bg-gray-50 text-gray-700 focus:ring-2 focus:ring-primary/20 focus:border-primary transition-colors cursor-pointer outline-none font-medium shadow-sm hover:border-gray-300">
+                            <option value="Helada">Helada</option>
+                            <option value="Sin Helar">Sin Helar</option>
+                        </select>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-auto pt-3 border-t border-gray-100/80">
+                        <span id="price-refresco-3" class="text-primary font-bold text-base lg:text-lg">S/ 18.00</span>
+                        <button onclick="addRefresco('Naranja', 3, 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?auto=format&fit=crop&w=400&q=80', this)" class="w-8 h-8 lg:w-10 lg:h-10 rounded-full bg-gradient-to-r from-primary to-red-700 text-white flex items-center justify-center hover:shadow-[0_4px_12px_rgba(230,33,23,0.3)] transition-all transform hover:-translate-y-0.5 group-hover:scale-105">
+                            <i class="fas fa-plus text-sm"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5: Limonada Frozen -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative opacity-90 grayscale-[20%]">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-100 flex-shrink-0 relative">
+                    <img alt="Limonada Frozen" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="IM/LIMONADA_FROZEN.png" onerror="this.src='https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=400&q=80'"/>
+                    <div class="absolute inset-0 bg-black/50 flex items-center justify-center p-2 backdrop-blur-[2px]">
+                        <span class="text-white font-bold text-[10px] sm:text-xs text-center border-2 border-white/80 rounded-md px-3 py-1.5 uppercase tracking-widest bg-black/30 shadow-lg">Solo Local Físico</span>
+                    </div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-2 line-clamp-1" title="Limonada Frozen">Limonada Frozen</h4>
+                    <p class="text-gray-500 text-xs mt-2 italic flex-grow flex items-center leading-relaxed">
+                        Nuestra exquisita limonada frozen con el toque especial de la casa. Solo disponible para consumo en nuestro local.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+function updateRefrescoPrice(id) {
+    var sizeSelect = document.getElementById('size-refresco-' + id);
+    var selectedOption = sizeSelect.options[sizeSelect.selectedIndex];
+    var price = selectedOption.getAttribute('data-price');
+    document.getElementById('price-refresco-' + id).innerText = 'S/ ' + price;
+}
+
+function addRefresco(name, id, img, btn) {
+    var sizeSelect = document.getElementById('size-refresco-' + id);
+    var tempSelect = document.getElementById('temp-refresco-' + id);
+
+    var size = sizeSelect.value;
+    var price = parseFloat(sizeSelect.options[sizeSelect.selectedIndex].getAttribute('data-price'));
+    var temp = tempSelect.value;
+
+    var finalName = name + ' (' + size + ' - ' + temp + ')';
+    cartApp.addItem(finalName, price, img, 'Refresco', btn);
+}
+</script>
+
+<section class="bg-gray-50 border-t border-gray-100 menu-section hidden" data-category="postres" id="postres-menu">
+    <!-- Hero Banner -->
+    <div class="relative bg-darker text-white py-12 sm:py-16">
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1920&q=80" alt="Fondo Postres" class="w-full h-full object-cover opacity-30 filter blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/80 to-transparent"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold italic mb-3 tracking-wider text-white">🧁 POSTRES</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base font-light">El final perfecto para una gran comida</p>
+            <div class="h-1 w-16 sm:w-24 bg-primary mx-auto mt-6 rounded-full opacity-80"></div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Menu Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+
+            <!-- Item 1: Panqueque de Banana con Miel -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Panqueque de Banana con Miel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1528207776546-382a933cb738?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Panqueque de Banana con Miel">Panqueque de Banana con Miel</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Delicioso panqueque servido con rodajas de banana fresca y un toque de miel.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 12.00</span>
+                        <button onclick="cartApp.addItem('Panqueque de Banana con Miel', 12.00, 'https://images.unsplash.com/photo-1528207776546-382a933cb738?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Panqueque de Banana con Miel" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Panqueque Ron Maggy -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Panqueque Ron Maggy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1554520735-0a6b8b6ce8b7?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                    <div class="absolute top-2 left-2 lg:top-3 lg:left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-md shadow-sm border border-gray-100 flex items-center gap-1.5 z-10">
+                        <span class="text-[10px] sm:text-xs font-bold text-gray-800 tracking-wide uppercase">⭐ Recomendado</span>
+                    </div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Panqueque Ron Maggy">Panqueque Ron Maggy</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Nuestra especialidad flambeada con un toque de ron para un sabor inolvidable.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 13.00</span>
+                        <button onclick="cartApp.addItem('Panqueque Ron Maggy', 13.00, 'https://images.unsplash.com/photo-1554520735-0a6b8b6ce8b7?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Panqueque Ron Maggy" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Panqueque con Leche Condensada -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Panqueque con Leche Condensada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1598214886806-c87b84b7078b?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Panqueque con Leche Condensada">Panqueque con Leche Condensada</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Suave panqueque bañado en abundante y dulce leche condensada.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 12.00</span>
+                        <button onclick="cartApp.addItem('Panqueque con Leche Condensada', 12.00, 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Panqueque con Leche Condensada" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4: Panqueque con Mermelada -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Panqueque con Mermelada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1620684617595-5db43b2f2d93?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Panqueque con Mermelada">Panqueque con Mermelada</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Clásico panqueque relleno de dulce mermelada de frutas.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 12.00</span>
+                        <button onclick="cartApp.addItem('Panqueque con Mermelada', 12.00, 'https://images.unsplash.com/photo-1620684617595-5db43b2f2d93?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Panqueque con Mermelada" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5: Panqueque de Manjar Blanco -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Panqueque de Manjar Blanco" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1598214886806-c87b84b7078b?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                    <div class="absolute top-2 left-2 lg:top-3 lg:left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-md shadow-sm border border-gray-100 flex items-center gap-1.5 z-10">
+                        <span class="text-[10px] sm:text-xs font-bold text-gray-800 tracking-wide uppercase">⭐ Más pedido</span>
+                    </div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Panqueque de Manjar Blanco">Panqueque de Manjar Blanco</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">El favorito de todos: relleno con el más dulce manjar blanco artesanal.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 13.00</span>
+                        <button onclick="cartApp.addItem('Panqueque de Manjar Blanco', 13.00, 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Panqueque de Manjar Blanco" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6: Panqueque con Chocolate -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Panqueque con Chocolate" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1554520735-0a6b8b6ce8b7?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Panqueque con Chocolate">Panqueque con Chocolate</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Relleno y bañado en deliciosa salsa de chocolate.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 12.00</span>
+                        <button onclick="cartApp.addItem('Panqueque con Chocolate', 12.00, 'https://images.unsplash.com/photo-1554520735-0a6b8b6ce8b7?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Panqueque con Chocolate" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 7: Durazno en Almíbar -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Durazno en Almíbar" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1627998687720-3023246eb35a?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Durazno en Almíbar">Durazno en Almíbar</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Dulces y jugosas mitades de durazno en su propio almíbar.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 10.00</span>
+                        <button onclick="cartApp.addItem('Durazno en Almíbar', 10.00, 'https://images.unsplash.com/photo-1627998687720-3023246eb35a?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Durazno en Almíbar" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Bebidas Section -->
+<section id="bebidas-menu" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 menu-section hidden" data-category="bebidas">
+    <!-- Hero Banner -->
+    <div class="relative bg-darker rounded-[32px] overflow-hidden mb-8 shadow-2xl">
+        <div class="absolute inset-0">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent z-10"></div>
+            <img alt="Bebidas Hero" class="w-full h-full object-cover opacity-60" src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=1200&q=80" />
+        </div>
+        <div class="relative z-20 px-8 py-12 sm:py-16 flex flex-col justify-center min-h-[200px] text-center">
+            <h2 class="text-4xl sm:text-5xl font-serif italic text-white font-bold mb-4">🥤 BEBIDAS</h2>
+            <p class="text-gray-300 text-lg">Refrescantes y para todos los gustos</p>
+        </div>
+    </div>
+
+    <div class="space-y-6">
+        <!-- Step 1: Marca -->
+        <div class="bg-white rounded-[24px] p-6 sm:p-8 shadow-sm border border-gray-100">
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">1. Elige tu Marca</h3>
+            <div class="grid grid-cols-3 gap-2 sm:gap-4">
+                <button id="bebidas-marca-Inca-Kola" onclick="bebidasApp.selectMarca('Inca Kola')" class="p-3 sm:p-4 rounded-xl border-2 border-primary bg-primary/5 text-center transition-all duration-300">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">Inca Kola</span>
+                </button>
+                <button id="bebidas-marca-Coca-Cola" onclick="bebidasApp.selectMarca('Coca-Cola')" class="p-3 sm:p-4 rounded-xl border-2 border-gray-200 text-center transition-all duration-300">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">Coca-Cola</span>
+                </button>
+                <button id="bebidas-marca-Fanta" onclick="bebidasApp.selectMarca('Fanta')" class="p-3 sm:p-4 rounded-xl border-2 border-gray-200 text-center transition-all duration-300">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">Fanta</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 2: Tamaño -->
+        <div class="bg-white rounded-[24px] p-6 sm:p-8 shadow-sm border border-gray-100">
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">2. Elige el Tamaño</h3>
+            <div class="grid grid-cols-2 gap-2 sm:gap-4">
+                <button id="bebidas-tamano-1-1-2-Litros" onclick="bebidasApp.selectTamano('1 1/2 Litros')" class="p-3 sm:p-4 rounded-xl border-2 border-primary bg-primary/5 flex flex-col sm:flex-row justify-center sm:justify-between items-center transition-all duration-300 gap-1 sm:gap-0">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">1 1/2 Litros</span>
+                    <span class="text-primary font-bold text-sm sm:text-base">+ S/ 12.00</span>
+                </button>
+                <button id="bebidas-tamano-1-2-Litro" onclick="bebidasApp.selectTamano('1/2 Litro')" class="p-3 sm:p-4 rounded-xl border-2 border-gray-200 flex flex-col sm:flex-row justify-center sm:justify-between items-center transition-all duration-300 gap-1 sm:gap-0">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">1/2 Litro</span>
+                    <span class="text-primary font-bold text-sm sm:text-base">+ S/ 5.00</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Step 3: Temperatura -->
+        <div class="bg-white rounded-[24px] p-6 sm:p-8 shadow-sm border border-gray-100">
+            <h3 class="text-xl font-bold text-gray-900 mb-4 text-center">3. Temperatura</h3>
+            <div class="grid grid-cols-2 gap-2 sm:gap-4">
+                <button id="bebidas-temp-Helada" onclick="bebidasApp.selectTemperatura('Helada')" class="p-3 sm:p-4 rounded-xl border-2 border-primary bg-primary/5 text-center transition-all duration-300">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">Helada ❄️</span>
+                </button>
+                <button id="bebidas-temp-Sin-helar" onclick="bebidasApp.selectTemperatura('Sin helar')" class="p-3 sm:p-4 rounded-xl border-2 border-gray-200 text-center transition-all duration-300">
+                    <span class="font-bold text-gray-900 text-sm sm:text-base">Sin helar 🌡️</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Summary & Add to Cart -->
+        <div class="bg-darker rounded-[24px] p-6 sm:p-8 shadow-xl border border-gray-800 text-center">
+            <h4 id="bebidas-title" class="font-bold text-white text-xl mb-2">Inca Kola (1 1/2 Litros) - Helada</h4>
+            <div class="text-3xl font-bold text-primary mb-6" id="bebidas-price">S/ 12.00</div>
+            <button id="add-bebida-btn" onclick="bebidasApp.addToCart()" class="w-full sm:w-auto px-12 bg-gradient-to-r from-primary to-red-700 hover:from-red-600 hover:to-red-800 text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-red-500/40 hover:-translate-y-1 inline-flex items-center justify-center gap-2">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Agregar al carrito</span>
+            </button>
+        </div>
+    </div>
+</section>
 </main><footer class="bg-darker text-white pt-12 pb-6 border-t border-gray-800">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
@@ -1712,6 +2421,52 @@ function selectPizzaSize(btn, pizzaIdx, price, callCode) {
     }
 }
 </script>
+
+<!-- Floating Cart -->
+<div id="floating-cart" class="fixed bottom-0 left-0 right-0 z-40 transform translate-y-full opacity-0 transition-all duration-300 sm:bottom-6 sm:left-auto sm:right-6 pointer-events-none">
+    <div class="bg-[#1a1a1a] rounded-t-2xl sm:rounded-2xl shadow-[0_-5px_30px_rgba(0,0,0,0.25)] p-4 sm:p-5 flex items-center justify-between text-white w-full sm:w-[380px] pointer-events-auto border-t sm:border border-gray-800 backdrop-blur-md bg-opacity-95">
+        <div class="flex flex-col">
+            <span class="text-[10px] text-gray-400 font-semibold tracking-widest uppercase mb-1">Total a Pagar</span>
+            <div class="flex items-baseline gap-2.5">
+                <span id="floating-cart-total" class="font-bold text-xl sm:text-2xl text-white tracking-wide">S/ 0.00</span>
+                <span id="floating-cart-count" class="text-xs font-bold text-primary px-2.5 py-0.5 bg-primary/10 rounded-full border border-primary/20">0</span>
+            </div>
+        </div>
+        <button onclick="cartApp.toggleModal()" class="bg-gradient-to-r from-primary to-red-700 hover:from-red-600 hover:to-red-800 text-white font-bold py-2.5 px-6 rounded-xl transition-all shadow-lg hover:shadow-red-500/40 hover:-translate-y-0.5 flex items-center gap-2 text-sm uppercase tracking-wider group">
+            <i class="fas fa-shopping-bag group-hover:scale-110 transition-transform"></i>
+            <span>Ver Carrito</span>
+        </button>
+    </div>
+</div>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof cartApp !== 'undefined') {
+        const originalUpdateUI = cartApp.updateBadge || function(){};
+        cartApp.updateBadge = function() {
+            originalUpdateUI.apply(this, arguments);
+
+            // Update floating cart
+            const count = this.state.items.reduce((sum, item) => sum + item.qty, 0);
+            const floatCart = document.getElementById('floating-cart');
+            if (floatCart) {
+                if (count > 0) {
+                    floatCart.classList.remove('translate-y-full', 'opacity-0');
+                    document.getElementById('floating-cart-count').innerText = count + ' item' + (count > 1 ? 's' : '');
+                    const total = this.state.items.reduce((sum, item) => sum + (item.price * item.qty), 0);
+                    document.getElementById('floating-cart-total').innerText = 'S/ ' + total.toFixed(2);
+                } else {
+                    floatCart.classList.add('translate-y-full', 'opacity-0');
+                }
+            }
+        };
+        // Initial call in case items already exist
+        cartApp.updateBadge();
+    }
+});
+</script>
+
 </body>
 
 </html>
