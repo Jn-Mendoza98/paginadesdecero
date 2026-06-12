@@ -199,11 +199,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const category = link.getAttribute('data-category');
 
             if (isMenuPage) {
-                // If it's a link to #category or menu.html#category
                 e.preventDefault();
-                // Update URL hash without reloading
-                window.history.pushState(null, null, `#${category}`);
-                filterCategory(category);
+                // Change hash to naturally trigger hashchange event without reloading
+                window.location.hash = category;
             }
             // If on index.html, let the default behavior navigate to menu.html#category
         });
@@ -242,20 +240,20 @@ const cartApp = {
 
     loadCart() {
         try {
-            const savedItems = sessionStorage.getItem('chezMaggyCart');
+            const savedItems = localStorage.getItem('chezMaggyCart');
             if (savedItems) {
                 this.state.items = JSON.parse(savedItems);
             }
         } catch (e) {
-            console.error('Error loading cart from sessionStorage', e);
+            console.error('Error loading cart from localStorage', e);
         }
     },
 
     saveCart() {
         try {
-            sessionStorage.setItem('chezMaggyCart', JSON.stringify(this.state.items));
+            localStorage.setItem('chezMaggyCart', JSON.stringify(this.state.items));
         } catch (e) {
-            console.error('Error saving cart to sessionStorage', e);
+            console.error('Error saving cart to localStorage', e);
         }
     },
 
