@@ -240,11 +240,20 @@ const cartApp = {
 
     loadCart() {
         try {
-            // Check if page was reloaded manually
-            const isReload = (window.performance && window.performance.navigation && window.performance.navigation.type === 1) ||
-                             (window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType("navigation").length > 0 && window.performance.getEntriesByType("navigation")[0].type === "reload");
+            const currentUrl = window.location.pathname;
+            const lastUrl = sessionStorage.getItem('chezMaggyLastUrl');
+            let isManualReload = false;
 
-            if (isReload) {
+            if (lastUrl === currentUrl) {
+                const navType = window.performance && window.performance.navigation ? window.performance.navigation.type : 0;
+                const navEntry = window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType("navigation").length > 0 ? window.performance.getEntriesByType("navigation")[0].type : '';
+                if (navType === 1 || navEntry === "reload") {
+                    isManualReload = true;
+                }
+            }
+            sessionStorage.setItem('chezMaggyLastUrl', currentUrl);
+
+            if (isManualReload) {
                 // Clear cart on manual reload
                 sessionStorage.removeItem('chezMaggyCart');
                 this.state.items = [];
