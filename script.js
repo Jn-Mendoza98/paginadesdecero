@@ -242,20 +242,20 @@ const cartApp = {
 
     loadCart() {
         try {
-            const savedItems = localStorage.getItem('chezMaggyCart');
+            const savedItems = sessionStorage.getItem('chezMaggyCart');
             if (savedItems) {
                 this.state.items = JSON.parse(savedItems);
             }
         } catch (e) {
-            console.error('Error loading cart from localStorage', e);
+            console.error('Error loading cart from sessionStorage', e);
         }
     },
 
     saveCart() {
         try {
-            localStorage.setItem('chezMaggyCart', JSON.stringify(this.state.items));
+            sessionStorage.setItem('chezMaggyCart', JSON.stringify(this.state.items));
         } catch (e) {
-            console.error('Error saving cart to localStorage', e);
+            console.error('Error saving cart to sessionStorage', e);
         }
     },
 
