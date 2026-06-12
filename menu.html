@@ -2051,6 +2051,160 @@ function addRefresco(name, id, img, btn) {
 }
 </script>
 
+<section class="bg-gray-50 border-t border-gray-100 menu-section hidden" data-category="postres" id="postres-menu">
+    <!-- Hero Banner -->
+    <div class="relative bg-darker text-white py-12 sm:py-16">
+        <div class="absolute inset-0 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1920&q=80" alt="Fondo Postres" class="w-full h-full object-cover opacity-30 filter blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/80 to-transparent"></div>
+        </div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-serif font-bold italic mb-3 tracking-wider text-white">🧁 POSTRES</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base font-light">El final perfecto para una gran comida</p>
+            <div class="h-1 w-16 sm:w-24 bg-primary mx-auto mt-6 rounded-full opacity-80"></div>
+        </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Menu Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+
+            <!-- Item 1: Panqueque de Banana con Miel -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Panqueque de Banana con Miel" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1528207776546-382a933cb738?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Panqueque de Banana con Miel">Panqueque de Banana con Miel</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Delicioso panqueque servido con rodajas de banana fresca y un toque de miel.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 12.00</span>
+                        <button onclick="cartApp.addItem('Panqueque de Banana con Miel', 12.00, 'https://images.unsplash.com/photo-1528207776546-382a933cb738?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Panqueque de Banana con Miel" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Panqueque Ron Maggy -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Panqueque Ron Maggy" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1554520735-0a6b8b6ce8b7?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                    <div class="absolute top-2 left-2 lg:top-3 lg:left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-md shadow-sm border border-gray-100 flex items-center gap-1.5 z-10">
+                        <span class="text-[10px] sm:text-xs font-bold text-gray-800 tracking-wide uppercase">⭐ Recomendado</span>
+                    </div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Panqueque Ron Maggy">Panqueque Ron Maggy</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Nuestra especialidad flambeada con un toque de ron para un sabor inolvidable.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 13.00</span>
+                        <button onclick="cartApp.addItem('Panqueque Ron Maggy', 13.00, 'https://images.unsplash.com/photo-1554520735-0a6b8b6ce8b7?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Panqueque Ron Maggy" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3: Panqueque con Leche Condensada -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Panqueque con Leche Condensada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1598214886806-c87b84b7078b?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Panqueque con Leche Condensada">Panqueque con Leche Condensada</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Suave panqueque bañado en abundante y dulce leche condensada.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 12.00</span>
+                        <button onclick="cartApp.addItem('Panqueque con Leche Condensada', 12.00, 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Panqueque con Leche Condensada" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4: Panqueque con Mermelada -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Panqueque con Mermelada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1620684617595-5db43b2f2d93?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Panqueque con Mermelada">Panqueque con Mermelada</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Clásico panqueque relleno de dulce mermelada de frutas.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 12.00</span>
+                        <button onclick="cartApp.addItem('Panqueque con Mermelada', 12.00, 'https://images.unsplash.com/photo-1620684617595-5db43b2f2d93?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Panqueque con Mermelada" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5: Panqueque de Manjar Blanco -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Panqueque de Manjar Blanco" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1598214886806-c87b84b7078b?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                    <div class="absolute top-2 left-2 lg:top-3 lg:left-3 bg-white/95 backdrop-blur-sm px-2.5 py-1 rounded-md shadow-sm border border-gray-100 flex items-center gap-1.5 z-10">
+                        <span class="text-[10px] sm:text-xs font-bold text-gray-800 tracking-wide uppercase">⭐ Más pedido</span>
+                    </div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Panqueque de Manjar Blanco">Panqueque de Manjar Blanco</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">El favorito de todos: relleno con el más dulce manjar blanco artesanal.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 13.00</span>
+                        <button onclick="cartApp.addItem('Panqueque de Manjar Blanco', 13.00, 'https://images.unsplash.com/photo-1598214886806-c87b84b7078b?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Panqueque de Manjar Blanco" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6: Panqueque con Chocolate -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Panqueque con Chocolate" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1554520735-0a6b8b6ce8b7?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Panqueque con Chocolate">Panqueque con Chocolate</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Relleno y bañado en deliciosa salsa de chocolate.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 12.00</span>
+                        <button onclick="cartApp.addItem('Panqueque con Chocolate', 12.00, 'https://images.unsplash.com/photo-1554520735-0a6b8b6ce8b7?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Panqueque con Chocolate" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 7: Durazno en Almíbar -->
+            <div class="bg-white rounded-[20px] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100 overflow-hidden flex flex-row lg:flex-col h-auto hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 group relative">
+                <div class="w-2/5 lg:w-full h-36 lg:h-48 overflow-hidden bg-gray-50 flex-shrink-0 relative">
+                    <img alt="Durazno en Almíbar" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" src="https://images.unsplash.com/photo-1627998687720-3023246eb35a?auto=format&fit=crop&w=400&q=80" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"></div>
+                </div>
+                <div class="p-4 lg:p-6 flex flex-col justify-center flex-grow bg-white lg:-mt-2 lg:rounded-t-[20px] relative z-10">
+                    <h4 class="font-bold text-gray-900 text-base lg:text-xl mb-1 lg:mb-2 line-clamp-2" title="Durazno en Almíbar">Durazno en Almíbar</h4>
+                    <p class="hidden lg:block text-gray-500 text-xs mb-4 line-clamp-2 leading-relaxed">Dulces y jugosas mitades de durazno en su propio almíbar.</p>
+                    <div class="mt-auto flex items-center justify-between">
+                        <span class="font-bold text-primary text-base lg:text-lg">S/ 10.00</span>
+                        <button onclick="cartApp.addItem('Durazno en Almíbar', 10.00, 'https://images.unsplash.com/photo-1627998687720-3023246eb35a?auto=format&fit=crop&w=400&q=80', '', this)" class="bg-primary/10 text-primary hover:bg-primary hover:text-white h-8 w-8 lg:h-10 lg:w-10 rounded-full flex items-center justify-center transition-colors shadow-sm" aria-label="Añadir Durazno en Almíbar" title="Añadir">
+                            <i class="fas fa-plus text-sm lg:text-base"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 </main><footer class="bg-darker text-white pt-12 pb-6 border-t border-gray-800">
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
