@@ -2443,25 +2443,26 @@ function selectPizzaSize(btn, pizzaIdx, price, callCode) {
 <script>
 document.addEventListener('DOMContentLoaded', () => {
     if (typeof cartApp !== 'undefined') {
-        const originalUpdateUI = cartApp.updateUI;
-        cartApp.updateUI = function() {
+        const originalUpdateUI = cartApp.updateBadge || function(){};
+        cartApp.updateBadge = function() {
             originalUpdateUI.apply(this, arguments);
 
             // Update floating cart
-            const count = this.items.reduce((sum, item) => sum + item.quantity, 0);
+            const count = this.state.items.reduce((sum, item) => sum + item.qty, 0);
             const floatCart = document.getElementById('floating-cart');
             if (floatCart) {
                 if (count > 0) {
                     floatCart.classList.remove('translate-y-full', 'opacity-0');
                     document.getElementById('floating-cart-count').innerText = count + ' item' + (count > 1 ? 's' : '');
-                    document.getElementById('floating-cart-total').innerText = 'S/ ' + this.total.toFixed(2);
+                    const total = this.state.items.reduce((sum, item) => sum + (item.price * item.qty), 0);
+                    document.getElementById('floating-cart-total').innerText = 'S/ ' + total.toFixed(2);
                 } else {
                     floatCart.classList.add('translate-y-full', 'opacity-0');
                 }
             }
         };
         // Initial call in case items already exist
-        cartApp.updateUI();
+        cartApp.updateBadge();
     }
 });
 </script>
