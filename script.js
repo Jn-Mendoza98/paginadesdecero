@@ -240,7 +240,8 @@ const cartApp = {
 
     loadCart() {
         try {
-            const currentUrl = window.location.pathname;
+            // Use pathname + search to avoid false matches, but EXCLUDE hash to not mistake hash changes for navigation.
+            const currentUrl = window.location.pathname + window.location.search;
             const lastUrl = sessionStorage.getItem('chezMaggyLastUrl');
             let isManualReload = false;
 
