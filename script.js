@@ -202,6 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 // Change hash to naturally trigger hashchange event without reloading
                 window.location.hash = category;
+                filterCategory(category);
             }
             // If on index.html, let the default behavior navigate to menu.html#category
         });
@@ -638,6 +639,19 @@ document.addEventListener('DOMContentLoaded', () => {
     vegApp.init();
     bebidasApp.init();
     bindGridAddButtons();
+});
+
+// Handle Back-Forward Cache (bfcache) navigation
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        // The page was restored from the bfcache (e.g., user swiped back).
+        // The DOMContentLoaded event is NOT fired in this case, so we need to
+        // explicitly sync the UI with the latest state from sessionStorage.
+        console.log('Page restored from bfcache, syncing cart...');
+        cartApp.loadCart();
+        cartApp.updateBadge();
+        cartApp.renderCart();
+    }
 });
 
 const bebidasApp = {
