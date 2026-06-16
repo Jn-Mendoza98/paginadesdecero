@@ -388,10 +388,10 @@ function bindGridAddButtons() {
 // --- Calzone App Logic ---
 const calzoneApp = {
     state: {
-        type: 'vegetariano', // tradicional, vegetariano, amigusto
+        type: 'tradicional', // tradicional, vegetariano, amigusto
         qty: 1,
-        basePrice: 26.90,
-        aceituna: 'mixtas', // negras, verdes, mixtas
+        basePrice: 24.90,
+        aceituna: null, // negras, verdes, mixtas, null
         ingredients: [] // max 6
     },
 
@@ -438,6 +438,7 @@ const calzoneApp = {
         this.state.type = type;
         this.state.qty = 1;
         this.state.ingredients = [];
+        this.state.aceituna = null;
         this.state.basePrice = this.prices[type];
         this.updateUI();
     },
@@ -607,6 +608,10 @@ const calzoneApp = {
 
         let desc = '';
         if (this.state.type === 'vegetariano') {
+            if (!this.state.aceituna) {
+                alert('Por favor selecciona el tipo de aceituna.');
+                return;
+            }
             const aName = this.state.aceituna.charAt(0).toUpperCase() + this.state.aceituna.slice(1);
             desc = `Aceitunas: ${aName}`;
         } else if (this.state.type === 'amigusto') {
