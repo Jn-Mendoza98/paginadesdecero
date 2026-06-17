@@ -24,7 +24,7 @@
             <div class="flex items-center justify-between h-20">
                 <!-- Mobile Menu Button -->
                 <div class="flex items-center lg:hidden">
-                    <button type="button" class="text-white hover:text-primary focus:outline-none focus:text-primary">
+                    <button id="mobile-menu-btn" type="button" class="text-white hover:text-primary focus:outline-none focus:text-primary">
                         <i class="fas fa-bars text-2xl"></i>
                     </button>
                 </div>
@@ -61,6 +61,21 @@
                         <span id="cart-badge" class="absolute -top-2 -right-2 bg-primary text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
                     </button>
                 </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-dark border-t border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 text-center">
+                <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-white hover:text-primary hover:bg-gray-800 transition">Inicio</a>
+                <a href="menu.html#entradas" data-category="entradas" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-800 transition">Entradas</a>
+                <a href="menu.html#cremas" data-category="cremas" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-800 transition">Cremas</a>
+                <a href="menu.html#calzone" data-category="calzone" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-800 transition">Calzone</a>
+                <a href="menu.html#pizzas" data-category="pizzas" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-800 transition">Pizzas</a>
+                <a href="menu.html#pastas" data-category="pastas" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-800 transition">Pastas</a>
+                <a href="menu.html#refrescos" data-category="refrescos" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-800 transition">Refrescos</a>
+                <a href="menu.html#postres" data-category="postres" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-800 transition">Postres</a>
+                <a href="menu.html#bebidas" data-category="bebidas" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-primary hover:bg-gray-800 transition">Bebidas</a>
             </div>
         </div>
     </header>
