@@ -390,15 +390,15 @@ const calzoneApp = {
     state: {
         type: 'tradicional', // tradicional, vegetariano, amigusto
         qty: 1,
-        basePrice: 24.90,
+        basePrice: 31.00,
         aceituna: null, // negras, verdes, mixtas, null
         ingredients: [] // max 6
     },
 
     prices: {
-        tradicional: 24.90,
-        vegetariano: 26.90,
-        amigusto: 28.90 // A Mi Gusto base price
+        tradicional: 31.00,
+        vegetariano: 30.00,
+        amigusto: 31.00 // A Mi Gusto base price
     },
 
     ingList: [
