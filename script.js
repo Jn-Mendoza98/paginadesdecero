@@ -1,3 +1,46 @@
+// Injecting aceitunaApp into script.js
+const aceitunaApp = {
+    selections: {}, // map of pizzaId to selected type (negras, verdes, mixtas)
+
+    select(pizzaId, type, btnElement) {
+        this.selections[pizzaId] = type;
+
+        // Update UI
+        const container = btnElement.closest('.aceituna-selector');
+        const buttons = container.querySelectorAll('button');
+
+        buttons.forEach(b => {
+            b.classList.remove('border-primary', 'bg-primary/5', 'ring-2', 'ring-primary/20');
+            b.classList.add('border-gray-200');
+
+            // Check icon toggle
+            const checkIcon = b.querySelector('.fa-check-circle');
+            if (checkIcon) checkIcon.parentElement.classList.add('hidden');
+        });
+
+        btnElement.classList.remove('border-gray-200');
+        btnElement.classList.add('border-primary', 'bg-primary/5', 'ring-2', 'ring-primary/20');
+
+        const selectedCheck = btnElement.querySelector('.fa-check-circle');
+        if (selectedCheck) selectedCheck.parentElement.classList.remove('hidden');
+    },
+
+    getSelection(pizzaId) {
+        return this.selections[pizzaId] || null;
+    },
+
+    validateAndGetSelection(pizzaId) {
+        const selection = this.getSelection(pizzaId);
+        if (!selection) {
+            alert('Por favor selecciona el tipo de aceituna antes de agregar al carrito.');
+            return null;
+        }
+        return selection;
+    }
+};
+
+// Add to global scope
+window.aceitunaApp = aceitunaApp;
 // Tailwind configuration and other custom JS
 tailwind.config = {
     theme: {
@@ -199,9 +242,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const category = link.getAttribute('data-category');
 
             if (isMenuPage) {
+                // If it's a link to #category or menu.html#category
                 e.preventDefault();
-                // Change hash to naturally trigger hashchange event without reloading
-                window.location.hash = category;
+                // Update URL hash without reloading
+                window.history.pushState(null, null, `#${category}`);
                 filterCategory(category);
             }
             // If on index.html, let the default behavior navigate to menu.html#category
@@ -241,40 +285,30 @@ const cartApp = {
 
     loadCart() {
         try {
-            // Use pathname + search to avoid false matches, but EXCLUDE hash to not mistake hash changes for navigation.
-            const currentUrl = window.location.pathname + window.location.search;
-            const lastUrl = sessionStorage.getItem('chezMaggyLastUrl');
-            let isManualReload = false;
+            // Check if page was reloaded
+            const isReload = (window.performance && window.performance.navigation && window.performance.navigation.type === 1) ||
+                             (window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType("navigation").length > 0 && window.performance.getEntriesByType("navigation")[0].type === "reload");
 
-            if (lastUrl === currentUrl) {
-                const navType = window.performance && window.performance.navigation ? window.performance.navigation.type : 0;
-                const navEntry = window.performance && window.performance.getEntriesByType && window.performance.getEntriesByType("navigation").length > 0 ? window.performance.getEntriesByType("navigation")[0].type : '';
-                if (navType === 1 || navEntry === "reload") {
-                    isManualReload = true;
-                }
-            }
-            sessionStorage.setItem('chezMaggyLastUrl', currentUrl);
-
-            if (isManualReload) {
-                // Clear cart on manual reload
-                sessionStorage.removeItem('chezMaggyCart');
+            if (isReload) {
+                // Clear cart on reload
+                localStorage.removeItem('chezMaggyCart');
                 this.state.items = [];
             } else {
-                const savedItems = sessionStorage.getItem('chezMaggyCart');
+                const savedItems = localStorage.getItem('chezMaggyCart');
                 if (savedItems) {
                     this.state.items = JSON.parse(savedItems);
                 }
             }
         } catch (e) {
-            console.error('Error loading cart from sessionStorage', e);
+            console.error('Error loading cart from localStorage', e);
         }
     },
 
     saveCart() {
         try {
-            sessionStorage.setItem('chezMaggyCart', JSON.stringify(this.state.items));
+            localStorage.setItem('chezMaggyCart', JSON.stringify(this.state.items));
         } catch (e) {
-            console.error('Error saving cart to sessionStorage', e);
+            console.error('Error saving cart to localStorage', e);
         }
     },
 
@@ -388,17 +422,17 @@ function bindGridAddButtons() {
 // --- Calzone App Logic ---
 const calzoneApp = {
     state: {
-        type: 'tradicional', // tradicional, vegetariano, amigusto
+        type: 'vegetariano', // tradicional, vegetariano, amigusto
         qty: 1,
-        basePrice: 31.00,
-        aceituna: null, // negras, verdes, mixtas, null
+        basePrice: 26.90,
+        aceituna: 'mixtas', // negras, verdes, mixtas
         ingredients: [] // max 6
     },
 
     prices: {
-        tradicional: 31.00,
-        vegetariano: 30.00,
-        amigusto: 31.00 // A Mi Gusto base price
+        tradicional: 24.90,
+        vegetariano: 26.90,
+        amigusto: 28.90 // A Mi Gusto base price
     },
 
     ingList: [
@@ -438,7 +472,6 @@ const calzoneApp = {
         this.state.type = type;
         this.state.qty = 1;
         this.state.ingredients = [];
-        this.state.aceituna = null;
         this.state.basePrice = this.prices[type];
         this.updateUI();
     },
@@ -608,10 +641,6 @@ const calzoneApp = {
 
         let desc = '';
         if (this.state.type === 'vegetariano') {
-            if (!this.state.aceituna) {
-                alert('Por favor selecciona el tipo de aceituna.');
-                return;
-            }
             const aName = this.state.aceituna.charAt(0).toUpperCase() + this.state.aceituna.slice(1);
             desc = `Aceitunas: ${aName}`;
         } else if (this.state.type === 'amigusto') {
@@ -642,135 +671,5 @@ document.addEventListener('DOMContentLoaded', () => {
     cartApp.init();
     calzoneApp.init();
     vegApp.init();
-    bebidasApp.init();
     bindGridAddButtons();
-
-    // Mobile menu toggle logic
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuBtn && mobileMenu) {
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close menu when a link inside it is clicked
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-    }
 });
-
-// Handle Back-Forward Cache (bfcache) navigation
-window.addEventListener('pageshow', (event) => {
-    if (event.persisted) {
-        // The page was restored from the bfcache (e.g., user swiped back).
-        // The DOMContentLoaded event is NOT fired in this case, so we need to
-        // explicitly sync the UI with the latest state from sessionStorage.
-        console.log('Page restored from bfcache, syncing cart...');
-        cartApp.loadCart();
-        cartApp.updateBadge();
-        cartApp.renderCart();
-    }
-});
-
-const bebidasApp = {
-    state: {
-        marca: 'Inca Kola', // Inca Kola, Coca-Cola, Fanta
-        tamano: '1 1/2 Litros', // 1 1/2 Litros, 1/2 Litro
-        temperatura: 'Helada', // Helada, Sin helar
-        qty: 1
-    },
-
-    prices: {
-        '1 1/2 Litros': 12.00,
-        '1/2 Litro': 5.00
-    },
-
-    images: {
-        'Inca Kola': 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80',
-        'Coca-Cola': 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80',
-        'Fanta': 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80'
-    },
-
-    init() {
-        this.updateUI();
-    },
-
-    selectMarca(marca) {
-        this.state.marca = marca;
-        this.updateUI();
-    },
-
-    selectTamano(tamano) {
-        this.state.tamano = tamano;
-        this.updateUI();
-    },
-
-    selectTemperatura(temperatura) {
-        this.state.temperatura = temperatura;
-        this.updateUI();
-    },
-
-    updateUI() {
-        const pPrice = document.getElementById('bebidas-price');
-        const pTitle = document.getElementById('bebidas-title');
-
-        if (pPrice && pTitle) {
-            pPrice.innerText = 'S/ ' + this.prices[this.state.tamano].toFixed(2);
-            pTitle.innerText = `${this.state.marca} (${this.state.tamano}) - ${this.state.temperatura}`;
-        }
-
-        // Update selected states of buttons
-        ['Inca Kola', 'Coca-Cola', 'Fanta'].forEach(m => {
-            const btn = document.getElementById(`bebidas-marca-${m.replace(/ /g, '-')}`);
-            if (btn) {
-                if (m === this.state.marca) {
-                    btn.classList.add('border-primary', 'bg-primary/5');
-                    btn.classList.remove('border-gray-200');
-                } else {
-                    btn.classList.remove('border-primary', 'bg-primary/5');
-                    btn.classList.add('border-gray-200');
-                }
-            }
-        });
-
-        ['1 1/2 Litros', '1/2 Litro'].forEach(t => {
-            const btn = document.getElementById(`bebidas-tamano-${t.replace(/[\/ ]/g, '-')}`);
-            if (btn) {
-                if (t === this.state.tamano) {
-                    btn.classList.add('border-primary', 'bg-primary/5');
-                    btn.classList.remove('border-gray-200');
-                } else {
-                    btn.classList.remove('border-primary', 'bg-primary/5');
-                    btn.classList.add('border-gray-200');
-                }
-            }
-        });
-
-        ['Helada', 'Sin helar'].forEach(temp => {
-            const btn = document.getElementById(`bebidas-temp-${temp.replace(/ /g, '-')}`);
-            if (btn) {
-                if (temp === this.state.temperatura) {
-                    btn.classList.add('border-primary', 'bg-primary/5');
-                    btn.classList.remove('border-gray-200');
-                } else {
-                    btn.classList.remove('border-primary', 'bg-primary/5');
-                    btn.classList.add('border-gray-200');
-                }
-            }
-        });
-    },
-
-    addToCart() {
-        const name = `${this.state.marca} ${this.state.tamano}`;
-        const price = this.prices[this.state.tamano];
-        const img = this.images[this.state.marca] || 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=400&q=80';
-        const desc = `Temp: ${this.state.temperatura}`;
-
-        cartApp.addItem(name, price, img, desc, document.getElementById('add-bebida-btn'));
-    }
-};
